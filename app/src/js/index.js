@@ -13,7 +13,6 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Posts from './pages/Posts'
 import CreatePost from './pages/CreatePost'
-import CreateFreePost from './pages/CreateFreePost'
 import ViewPost from './pages/ViewPost'
 import EditPost from './pages/EditPost'
 import Payments from './pages/Payments'
@@ -33,7 +32,6 @@ render(
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/posts' component={Posts} />
           <Route exact path='/posts/new' component={CreatePost} />
-          <Route exact path='/posts/try' component={CreateFreePost} />
           <Route exact path='/post/:id' component={ViewPost} />
           <Route exact path='/posts/edit/:id' component={EditPost} />
           <Route exact path='/payments' component={Payments} />
