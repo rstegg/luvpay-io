@@ -1,0 +1,5 @@
+.pay--menu {
+    display: flex;
+    position: absolute;
+    transform: translateX(250px);
+}

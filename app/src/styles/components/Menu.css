@@ -1,0 +1,99 @@
+.menu--mobile__container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu--container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+}
+
+.menu--container--left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 90%;
+  position: fixed;
+  bottom: 0;
+  left: 5vw;
+  right: auto;
+  top: auto;
+}
+
+.menu--container--right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 90%;
+  position: fixed;
+  bottom: 0;
+  left: auto;
+  right: 5vw;
+  top: auto;
+}
+
+.dropdown--mobile {
+  margin-right: -45% !important;
+  width: 100vw;
+  height: 90vh;
+  right: 0;
+  left: auto;
+}
+
+.dropdown--mobile__item {
+  margin: 5vh 5vw !important;
+  font-size: 2em !important;
+  text-transform: none !important;
+}
+
+.dropdown--mobile__item:hover {
+  background-color: #ccc;
+}
+
+@media (min-width: 768px)  {
+  .menu--mobile__container {
+    display: none;
+  }
+  .menu--container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    top: auto;
+  }
+
+  .menu--button {
+    z-index: -101;
+    flex: 1;
+    width: 7.5vh;
+    height: 7.5vh;
+    margin: 1vh 1vw;
+    max-height: 7.5vh;
+    max-width: 7.5vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu--button > i {
+    position: relative;
+    z-index: -100;
+    flex: 1;
+  }
+}

@@ -1,0 +1,31 @@
+.ui.image.editable {
+  cursor: pointer;
+  border-top: 4px dashed rgb(153, 153, 153) !important;
+  border-right: 4px dashed rgb(153, 153, 153);
+  border-bottom-color: rgb(153, 153, 153);
+  border-bottom-style: dashed;
+  border-bottom-width: 4px;
+  border-left-color: rgb(153, 153, 153);
+  border-left-style: dashed;
+  border-left-width: 4px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.ui.image.editable:hover {
+  border-color: rgb(187, 187, 187);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width:768px)  {
+  .ui.image.editable {
+    width: 30vw;
+    align-self: center;
+    margin: 1vh 1vw;
+  }
+}

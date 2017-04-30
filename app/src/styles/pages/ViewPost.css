@@ -1,0 +1,35 @@
+.post--menu {
+    height: 100%;
+    float: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+}
+
+.post--image {
+  width: 50%;
+  align-self: center;
+}
+
+.post--container {
+  min-height: 20%;
+  height: 88.5%;
+  height: auto;
+  overflow: auto;
+  width: 100%;
+}
+
+@media (min-width:768px)  {
+
+  .post--image {
+    width: 100%;
+    align-self: center;
+  }
+
+  .post--container {
+    min-width: 30%;
+    max-width: 75%;
+    width: auto;
+  }
+}

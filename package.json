@@ -1,0 +1,15 @@
+{
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "",
+  "scripts": {
+    "dev": "nodemon server/dev.js",
+    "prod": "nodemon server/index.js",
+    "app": "cd app && npm start",
+    "start": "npm-run-all --parallel app dev"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2"
+  }
+}
