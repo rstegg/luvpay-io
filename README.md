@@ -1,5 +1,11 @@
 # kuwau
 
+## Roadmap (MVP1)
+
+- Profile (Doctor, Researcher)
+- Feed (Following, recommended [interest], promoted [needs funding])
+- Feed Items: Article [link], Page [needs funding, about us],  Social (tweet/twitter item)
+
 ## TODO [server]
 
 * Refactor duplicated validateBody on each handler
