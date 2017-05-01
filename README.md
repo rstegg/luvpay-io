@@ -14,6 +14,7 @@
 ## TODO [app]
 - Fix designs overlapping
 - add more navigation to header
+- work on feed
 - work on page
 - work on doctor view
 
