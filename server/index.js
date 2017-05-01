@@ -22,16 +22,10 @@ app
   .use(passport.initialize())
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 http.listen(port, function() {
   console.log(`Listening on port ${port}`)
 })
-
-const apiOptions = {
-  app: app,
-  models: models,
-  passport: passport
-}
 
 app.use(`${API_HOST}`, require('./api/v1'))
 

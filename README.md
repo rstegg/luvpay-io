@@ -2,9 +2,20 @@
 
 ## Roadmap (MVP1)
 
-- Profile (Doctor, Researcher)
+- Profile:
+  - Doctor: Username, bio, interests, contact
+  - Researcher: Username, bio, research, contact
+- Feed:
+  - Doctor: Customize your interests
+  - Researcher: the current layout, polish
 - Feed (Following, recommended [interest], promoted [needs funding])
 - Feed Items: Article [link], Page [needs funding, about us], Post
+
+## TODO [app]
+- Fix designs overlapping
+- add more navigation to header
+- work on page
+- work on doctor view
 
 ## TODO [server]
 
