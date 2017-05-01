@@ -5,13 +5,11 @@
   justify-content: center;
 }
 
-.posts {
+/*.posts {
   min-height: 20%;
-  height: 88.5%;
-  height: auto;
   overflow: auto;
   width: 100%;
-}
+}*/
 
 @media (min-width:768px)  {
   .posts {

@@ -20,6 +20,10 @@
   width: 100%;
 }
 
+.ui.card>.content:first-child {
+  overflow: hidden;
+}
+
 .ui.card>.content {
   overflow: auto;
 }
@@ -45,13 +49,20 @@
   }
 
   .main {
+    position: absolute;
     width: 100%;
+    top: 63px;
+    bottom: 100px;
     display: flex;
-    flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: auto;
+  }
+
+  .main>* {
+    max-height: 100%;
+    flex: 0 0 auto;
   }
 
   .card {
