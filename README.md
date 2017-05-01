@@ -16,7 +16,7 @@
 - add more navigation to header
 - work on feed (customizing interests)
 - work on page (not started)
-- add user types
+- add user types (doctor, researcher)
 - work on doctor view (not started-ish)
 
 ## TODO [server]
