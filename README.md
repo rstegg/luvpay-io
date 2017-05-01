@@ -14,9 +14,10 @@
 ## TODO [app]
 - Fix designs overlapping
 - add more navigation to header
-- work on feed
-- work on page
-- work on doctor view
+- work on feed (customizing interests)
+- work on page (not started)
+- add user types
+- work on doctor view (not started-ish)
 
 ## TODO [server]
 

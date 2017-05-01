@@ -2,23 +2,20 @@ const crypto = require('crypto')
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('users', {
-    stripe_customer_id: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    stripe_account_id: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    card_accounts: {
-      type: DataTypes.ARRAY(DataTypes.JSONB),
+    interest_types: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
-      defaultValue: []
+      defaultValue: ['open', 'research']
     },
-    bank_accounts: {
-      type: DataTypes.ARRAY(DataTypes.JSONB),
+    interests: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
-      defaultValue: []
+      defaultValue: ['']
+    },
+    tech_wanted: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+      defaultValue: ['']
     },
     email: {
       type: DataTypes.STRING,

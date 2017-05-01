@@ -15,7 +15,7 @@ export const fetchFeed = user =>
 ({
   type: 'FETCH_FEED',
   payload: {
-    userId: user.id
+    user
   }
 })
 

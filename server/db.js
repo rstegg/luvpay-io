@@ -12,6 +12,6 @@ Object.keys(models)
   .filter(model => model.associate)
   .forEach(model => model.associate(models))
 
-db.sync({ force: true })
+db.sync()
 
 module.exports = { db, models }

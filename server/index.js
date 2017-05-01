@@ -22,12 +22,14 @@ app
   .use(passport.initialize())
 
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3030
 http.listen(port, function() {
   console.log(`Listening on port ${port}`)
 })
 
-app.use(`${API_HOST}`, require('./api/v1'))
+const apiRoutes = require('./api/v1')()
+
+app.use(`${API_HOST}`, apiRoutes)
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './build', 'index.html'))

@@ -5,15 +5,16 @@ import { Observable } from 'rxjs/Rx'
 const API_HOST = '/api/v1'
 
 const api = {
-  fetchFeed: ({userId}) => {
+  fetchFeed: ({user}) => {
     const request =
-      su.get(`${API_HOST}/feed/${userId}`)
+      su.get(`${API_HOST}/feed`)
         .set('Accept', 'application/json')
+        .set('Authorization', user.token)
     return Observable.fromPromise(request)
   },
   fetchPublicFeed: () => {
     const request =
-      su.get(`${API_HOST}/feed`)
+      su.get(`${API_HOST}/feed/public`)
         .set('Accept', 'application/json')
     return Observable.fromPromise(request)
   }
