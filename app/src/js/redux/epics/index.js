@@ -5,13 +5,14 @@ import { fetchPosts, fetchSinglePost, createPost, uploadPostImage, uploadFreePos
 import { fetchPages, fetchSinglePage, createPage } from './pages'
 import { fetchArticles, fetchSingleArticle, createArticle } from './articles'
 import { uploadAvatar, editProfile, fetchProfile } from './profile'
-import { fetchFeed } from './feed'
+import { fetchFeed, fetchPublicFeed } from './feed'
 import { createStripeCard, createStripeBank } from './stripe'
 
 export default combineEpics(
   createStripeBank,
   createStripeCard,
   fetchFeed,
+  fetchPublicFeed,
   fetchPosts,
   fetchSinglePost,
   createPost,

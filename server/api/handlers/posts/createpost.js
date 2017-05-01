@@ -8,7 +8,7 @@ const { allPass, merge, path, pick, pipe } = require('ramda')
 const validField = p => obj => Boolean(path([p], obj))
 
 const validBody = pipe(
-    path(['body']),
+    path(['body', 'post']),
     allPass([
         validField('name'),
         validField('post_type')
@@ -32,7 +32,7 @@ const validate = req => {
   if (!validBody(req)) return Promise.reject('missing fields')
 
   const slug =
-    req.body.name
+    req.body.post.name
       .replace("'", '')
       .replace(/[^a-z0-9]/gi, '-')
       .toLowerCase()
@@ -47,7 +47,7 @@ module.exports = (req, res) => {
       const newPost = merge({
         userId: req.user.id,
         slug
-      }, pick(['name', 'post_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body))
+      }, pick(['name', 'post_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body.post))
       return Post.create(newPost)
     })
     .then(post => res.status(200).json({post}))

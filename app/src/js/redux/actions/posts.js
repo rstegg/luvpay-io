@@ -91,16 +91,11 @@ export const onFetchSinglePostSuccess = res =>
   }
 })
 
-export const createPost = ({name, description, image, amount, post_type, is_public}, {token}) =>
+export const createPost = (post, {token}) =>
 ({
   type: 'CREATE_POST',
   payload: {
-    name,
-    description,
-    image,
-    post_type,
-    is_public,
-    amount,
+    post,
     token
   }
 })

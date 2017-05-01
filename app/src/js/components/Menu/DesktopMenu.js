@@ -18,7 +18,7 @@ export default
   toPower
 }) =>
   <div>
-    <div className='menu--container'>
+    <div className='ui fluid bottom fixed menu menu--container'>
       <MenuButton onClick={toPublicFeed} icon='globe' text='public posts' />
       {!user.isAuthenticated && <MenuButton onClick={toLogin} icon='sign in' text='login' />}
       {!user.isAuthenticated && <MenuButton onClick={toSignup} icon='add user' text='sign up' />}

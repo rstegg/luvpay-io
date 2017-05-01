@@ -39,7 +39,7 @@ class Home extends Component {
 
 const mapStateToProps = ({feed}) =>
 ({
-  feed: feed.list
+  feed: feed.public
 })
 
 const mapDispatchToProps = dispatch =>

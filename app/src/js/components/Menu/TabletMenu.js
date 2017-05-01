@@ -20,7 +20,7 @@ export default
   <div>
     <div className='menu--container--left'>
       <MenuButton onClick={toPublicFeed} icon='globe' text='public posts' />
-      {user.isAuthenticated && <MenuButton onClick={toFeed} icon='sticky note' text='your feed' />}
+      {user.isAuthenticated && <MenuButton onClick={toFeed} icon='list layout' text='your feed' />}
       {user.isAuthenticated && <MenuButton onClick={toPosts} icon='sticky note' text='your posts' />}
       {user.isAuthenticated && <MenuButton onClick={toPages} icon='book' text='your pages' />}
     </div>
