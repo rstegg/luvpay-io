@@ -6,12 +6,12 @@ export const createStripeCard = card =>
   }
 })
 
-export const onCreateStripeCardSuccess = (card, { payment, user, postId }) =>
+export const onCreateStripeCardSuccess = (card, { page, user, postId }) =>
 ({
   type: 'CREATE_STRIPE_CARD_SUCCESS',
   payload: {
     card,
-    payment,
+    page,
     user,
     postId
   }

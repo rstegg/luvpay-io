@@ -11,7 +11,7 @@ const validBody = pipe(
     path(['body']),
     allPass([
         validField('name'),
-        validField('amount_type'),
+        validField('post_type'),
         validField('is_public')
     ]))
 
@@ -48,11 +48,8 @@ module.exports = (req, res) => {
   validate(req)
     .then(slug => {
       const safePost = merge({
-        amount: req.body.amount || '',
-        image: req.body.image || '',
-        description: req.body.description || '',
         slug
-      }, pick(['name', 'amount_type', 'is_public'], req.body))
+      }, pick(['name', 'post_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body))
       return Post.update(safePost, { where: { id: req.params.id, userId: req.user.id } })
     })
     .then(post => res.status(200).json({post}))

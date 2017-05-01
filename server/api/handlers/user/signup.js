@@ -59,8 +59,9 @@ const validate = req => {
 }
 
 module.exports = (req, res) => {
-    validate(User, req)
+    validate(req)
       .then(validatedUser => {
+
         const salt = (Math.floor(Math.random() * 1000000000)).toString(36)
         const hash = crypto.createHash('md5').update(validatedUser.password + salt).digest('hex')
         const ip = getIp(req)
@@ -75,12 +76,14 @@ module.exports = (req, res) => {
           verify_token
         }, pick(['email', 'name', 'username'], validatedUser))
 
-        const permalink_url = `https://kuwau.com/signup/email_confirmation/${permalink}/${verify_token}`
         //We can return this Promise to un-nest the mail sending stuff, and then we don't need to
         //duplicate the error handling.
+
         return User.create(user)
       })
       .then(createdUser => {
+        const { permalink, verify_token } = createdUser
+        const permalink_url = `https://kuwau.com/api/v1/signup/email_confirmation/${permalink}/${verify_token}`
         const mail = confirmationMail(createdUser, permalink_url)
         sendConfirmation(mail, createdUser)
         const resUser = pick(['id', 'email', 'name', 'username'], createdUser)

@@ -2,7 +2,8 @@ import { combineEpics } from 'redux-observable'
 import loginSubmit from './login'
 import signupSubmit from './signup'
 import { fetchPosts, fetchSinglePost, createPost, uploadPostImage, uploadFreePostImage, editPost, deletePost, sharePost } from './posts'
-import { fetchPayments, createPayment } from './payments'
+import { fetchPages, fetchSinglePage, createPage } from './pages'
+import { fetchArticles, fetchSingleArticle, createArticle } from './articles'
 import { uploadAvatar, editProfile, fetchProfile } from './profile'
 import { fetchFeed } from './feed'
 import { createStripeCard, createStripeBank } from './stripe'
@@ -17,8 +18,12 @@ export default combineEpics(
   editPost,
   deletePost,
   sharePost,
-  fetchPayments,
-  createPayment,
+  fetchArticles,
+  createArticle,
+  fetchSinglePage,
+  fetchSingleArticle,
+  fetchPages,
+  createPage,
   loginSubmit,
   signupSubmit,
   uploadAvatar,

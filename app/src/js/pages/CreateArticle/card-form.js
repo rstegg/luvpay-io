@@ -34,7 +34,7 @@ const NumberField = ({ input: { value, onChange }, meta: { touched, error } }) =
     {touched && error && <Label basic color='red' pointing>{error}</Label>}
   </Form.Field>
 
-const CardForm = ({handleSubmit, previousPage}) =>
+const CardForm = ({handleSubmit, previousArticle}) =>
   <Form onSubmit={handleSubmit}>
     <Field component={InputField} name='name' label='Name on card' control='input' placeholder='Full name' />
     <Field component={NumberField} name='number' validate={[validNumber]} label='Card Number' control='input' placeholder='Number' />
@@ -43,12 +43,12 @@ const CardForm = ({handleSubmit, previousPage}) =>
       <Field component={InputField} name='cvc' validate={[validCVC]} label='CVC' control='input' placeholder='CVC' />
     </Form.Group>
     <Field component={InputField} name='address_zip' label='Zip' placeholder='Zip code' />
-      <Button onClick={previousPage} secondary>Back</Button>
+      <Button onClick={previousArticle} secondary>Back</Button>
       <Button type='submit' primary>Next</Button>
   </Form>
 
 export default reduxForm({
-  form: 'newPayment',
+  form: 'newArticle',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
   validate

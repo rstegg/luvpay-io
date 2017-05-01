@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import AmountForm from './amount-form'
 import CardForm from './card-form'
 
-export default class CreatePaymentForm extends Component {
+export default class CreatePageForm extends Component {
   constructor(props) {
     super(props)
     this.state = {

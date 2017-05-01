@@ -26,9 +26,9 @@ const api = {
       .set('Authorization', token)
     return Observable.fromPromise(request)
   },
-  createPost: ({name, description, image, amount_type, amount, is_public, token}) => {
+  createPost: ({name, description, image, post_type, amount, is_public, token}) => {
    const request = su.post(`${API_HOST}/posts`)
-      .send({name, description, image, amount_type, amount, is_public})
+      .send({name, description, image, post_type, amount, is_public})
       .set('Accept', 'application/json')
       .set('Authorization', token)
     return Observable.fromPromise(request)
@@ -53,9 +53,9 @@ const api = {
       .set('Accept', 'application/json')
     return Observable.fromPromise(request)
   },
-  editPost: ({id, name, description, image, amount, amount_type, is_public, token}) => {
+  editPost: ({id, name, description, image, amount, post_type, is_public, token}) => {
    const request = su.put(`${API_HOST}/post/${id}`)
-      .send({name, description, image, amount, amount_type, is_public})
+      .send({name, description, image, amount, post_type, is_public})
       .set('Accept', 'application/json')
       .set('Authorization', token)
     return Observable.fromPromise(request)

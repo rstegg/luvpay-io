@@ -5,14 +5,16 @@ import { reducer as formReducer } from 'redux-form'
 import user from './user'
 import feed from './feed'
 import posts from './posts'
-import payments from './payments'
+import pages from './pages'
+import articles from './articles'
 import profile from './profile'
 
 export default combineReducers({
+  articles,
   user,
   feed,
   posts,
-  payments,
+  pages,
   profile,
   form: formReducer,
   router: routerReducer

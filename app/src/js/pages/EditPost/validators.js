@@ -3,10 +3,10 @@ export const validate = values => {
   if (!values.name) {
     errors.name = 'Required'
   }
-  if (!values.amount_type) {
-    errors.amount_type = 'Required'
+  if (!values.post_type) {
+    errors.post_type = 'Required'
   }
-  if (values.amount_type === 'fixed' && !values.amount) {
+  if (values.post_type === 'fixed' && !values.amount) {
     errors.amount = 'Required'
   }
   return errors

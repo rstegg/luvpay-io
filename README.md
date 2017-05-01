@@ -4,7 +4,7 @@
 
 - Profile (Doctor, Researcher)
 - Feed (Following, recommended [interest], promoted [needs funding])
-- Feed Items: Article [link], Page [needs funding, about us],  Social (tweet/twitter item)
+- Feed Items: Article [link], Page [needs funding, about us], Post
 
 ## TODO [server]
 

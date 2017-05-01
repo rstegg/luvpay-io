@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Menu, Button } from 'semantic-ui-react'
 
-const PayMenu = ({payment}) =>
+const ArticleMenu = ({article}) =>
   <Menu vertical compact>
     <Menu.Item>
       <Button circular basic>
@@ -21,4 +21,4 @@ const PayMenu = ({payment}) =>
     </Menu.Item>
   </Menu>
 
-export default PayMenu
+export default ArticleMenu

@@ -18,7 +18,7 @@ const Avatar = ({image, uploadPostImage}) =>
 
 const CreatePost = ({ user, post, image, createPost, uploadPostImage }) =>
   !user.isAuthenticated ?
-    <Redirect to='/' from='/posts/new' />
+    <Redirect to='/login' from='/posts/new' />
   : post.isCreated ?
     <Redirect to='/posts' from='/posts/new' />
   :

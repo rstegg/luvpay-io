@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('kus', {
+  return sequelize.define('posts', {
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -8,42 +8,32 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    amount_type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'open'
-    },
     is_public: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
+    },
+    post_type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'open'
+    },
+    research_type: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    research_other: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
     slug: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
     },
-    amount: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    raised: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: '0'
-    },
-    goal: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     image: {
       type: DataTypes.STRING,
       allowNull: true
-    },
-    feeType: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'self'
     }
   }, {
     freezeTableName: true,

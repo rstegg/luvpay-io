@@ -34,7 +34,7 @@ const validate = req => {
 }
 
 module.exports = (req, res) => {
-  validate(Post, req)
+  validate(req)
     .then(post => {
         const mail = mailcomposer({
           from: 'kuwau.com <hello@mg.kuwau.com>',

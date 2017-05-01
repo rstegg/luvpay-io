@@ -12,7 +12,7 @@ const api = {
       )
       return request({ country: 'US', currency: 'USD', routing_number, account_number, account_holder_name, account_holder_type })
   },
-  createStripeCard: ({ payment: { number, cvc, expiry, address_zip }, user, postId }) => {
+  createStripeCard: ({ page: { number, cvc, expiry, address_zip }, user, postId }) => {
     const request =
       Observable.bindCallback(
         Stripe.card.createToken,
@@ -23,7 +23,7 @@ const api = {
 }
 
 export const createStripeCard = action$ =>
-  action$.ofType('CREATE_PAYMENT')
+  action$.ofType('CREATE_PAGE')
     .mergeMap(action =>
       api.createStripeCard(action.payload)
         .map(({status, response}) => {

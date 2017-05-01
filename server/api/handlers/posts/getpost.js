@@ -1,5 +1,5 @@
 const { models } = require('../../../db')
-const { Post } = models
+const { Post, User } = models
 
 module.exports = (req, res) => {
   Post.findOne({

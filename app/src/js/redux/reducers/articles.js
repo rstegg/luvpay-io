@@ -6,34 +6,34 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch(action.type) {
-    case 'FETCH_PAYMENTS_SUCCESS':
+    case 'FETCH_ARTICLES_SUCCESS':
       return Object.assign({}, state, {
-        list: action.payload.payments
+        list: action.payload.articles
       })
-    case 'CREATE_PAYMENT_SUCCESS':
+    case 'CREATE_ARTICLE_SUCCESS':
       return Object.assign({}, state, {
-        list: [...state.list, action.payload.payment],
+        list: [...state.list, action.payload.article],
         new: {
           ...state.new,
           isCreated: true
         }
       })
-    case 'FETCH_SINGLE_PAYMENT_SUCCESS':
+    case 'FETCH_SINGLE_ARTICLE_SUCCESS':
       return Object.assign({}, state, {
-        current: action.payload.payment
+        current: action.payload.article
       })
-    case 'SET_CURRENT_PAYMENT':
+    case 'SET_CURRENT_ARTICLE':
       return Object.assign({}, state, {
-        current: action.payload.payment
+        current: action.payload.article
       })
-    case 'REFRESH_PAYMENTS':
+    case 'REFRESH_ARTICLES':
       return Object.assign({}, state, {
         current: initialState.current,
         new: initialState.new
       })
-    case 'FETCH_PAYMENTS_FAILURE':
+    case 'FETCH_ARTICLES_FAILURE':
     case 'CREATE_STRIPE_CARD_FAILURE':
-    case 'CREATE_PAYMENT_FAILURE':
+    case 'CREATE_ARTICLE_FAILURE':
     default:
       return state
   }

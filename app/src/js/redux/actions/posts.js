@@ -91,14 +91,14 @@ export const onFetchSinglePostSuccess = res =>
   }
 })
 
-export const createPost = ({name, description, image, amount, amount_type, is_public}, {token}) =>
+export const createPost = ({name, description, image, amount, post_type, is_public}, {token}) =>
 ({
   type: 'CREATE_POST',
   payload: {
     name,
     description,
     image,
-    amount_type,
+    post_type,
     is_public,
     amount,
     token
@@ -146,7 +146,7 @@ export const onUploadFreePostImageSuccess = res =>
   }
 })
 
-export const editPost = ({id, name, description, image, amount, amount_type, is_public}, {token}) =>
+export const editPost = ({id, name, description, image, amount, post_type, is_public}, {token}) =>
 ({
   type: 'EDIT_POST',
   payload: {
@@ -155,7 +155,7 @@ export const editPost = ({id, name, description, image, amount, amount_type, is_
     description,
     image,
     amount,
-    amount_type,
+    post_type,
     is_public,
     token,
   }

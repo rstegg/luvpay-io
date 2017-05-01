@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import FeedList from './list'
 
-import { fetchFeed } from '../../redux/actions/feed'
+import { fetchPublicFeed } from '../../redux/actions/feed'
 import { setCurrentPost } from '../../redux/actions/posts'
 
 import RootLayout from '../../components/layouts/Root'
@@ -12,7 +12,7 @@ import RouterButton from '../../elements/RouterButton'
 
 class Home extends Component {
   componentWillMount() {
-    this.props.fetchFeed()
+    this.props.fetchPublicFeed()
   }
   render() {
     const { setCurrentPost } = this.props
@@ -44,7 +44,7 @@ const mapStateToProps = ({feed}) =>
 
 const mapDispatchToProps = dispatch =>
 ({
-  fetchFeed: () => dispatch(fetchFeed()),
+  fetchPublicFeed: () => dispatch(fetchPublicFeed()),
   setCurrentPost: (post) => dispatch(setCurrentPost(post))
 })
 

@@ -9,6 +9,6 @@
 @import 'pages/EditProfile.css';
 @import 'pages/Home.css';
 @import 'pages/Posts.css';
-@import 'pages/Payments.css';
+@import 'pages/Pages.css';
 @import 'pages/ViewPost.css';
-@import 'pages/ViewPayment.css';
+@import 'pages/ViewPage.css';

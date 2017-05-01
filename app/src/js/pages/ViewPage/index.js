@@ -4,31 +4,31 @@ import { Redirect } from 'react-router-dom'
 
 import { Card, Label } from 'semantic-ui-react'
 import RootLayout from '../../components/layouts/Root'
-import PayMenu from '../../components/PayMenu'
+import PageMenu from '../../components/PageMenu'
 
-import { fetchSinglePayment } from '../../redux/actions/payments'
+import { fetchSinglePage } from '../../redux/actions/pages'
 
-class ViewPayment extends Component {
+class ViewPage extends Component {
   componentWillMount() {
     const { match: { params }, user } = this.props
-    this.props.fetchSinglePayment(params.id, user)
+    this.props.fetchSinglePage(params.id, user)
   }
   render() {
-    const { payment, user } = this.props
-    if(!payment) {
+    const { page, user } = this.props
+    if(!page) {
       return <Redirect to='/' />
     }
     return (
       <RootLayout>
         <div className='pay--menu'>
-          <PayMenu />
+          <PageMenu />
         </div>
         <Card>
           <Card.Content>
             <Card.Header>{user.name}</Card.Header>
-            <Card.Meta>Paid - ${payment.amount}</Card.Meta>
+            <Card.Meta>Paid - ${page.amount}</Card.Meta>
             <Card.Description>
-              <Label basic>Note: {payment.name}</Label>
+              <Label basic>Note: {page.name}</Label>
             </Card.Description>
           </Card.Content>
         </Card>
@@ -37,18 +37,18 @@ class ViewPayment extends Component {
   }
 }
 
-const mapStateToProps = ({payments, user}) =>
+const mapStateToProps = ({pages, user}) =>
 ({
-  payment: payments.current,
+  page: pages.current,
   user
 })
 
 const mapDispatchToProps = dispatch =>
 ({
-  fetchSinglePayment: (paymentId, user) => dispatch(fetchSinglePayment(paymentId, user))
+  fetchSinglePage: (pageId, user) => dispatch(fetchSinglePage(pageId, user))
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ViewPayment)
+)(ViewPage)

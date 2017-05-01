@@ -1,27 +1,27 @@
-export const fetchFeed = () =>
+export const fetchPublicFeed = () =>
 ({
-  type: 'FETCH_FEED'
+  type: 'FETCH_PUBLIC_FEED'
 })
 
-export const onFetchFeedSuccess = res =>
+export const onFetchPublicFeedSuccess = res =>
 ({
-  type: 'FETCH_FEED_SUCCESS',
+  type: 'FETCH_PUBLIC_FEED_SUCCESS',
   payload: {
     feed: res.body.feed
   }
 })
 
-export const fetchFeedPost = post =>
+export const fetchFeed = user =>
 ({
-  type: 'FETCH_FEED_POST',
+  type: 'FETCH_FEED',
   payload: {
-    post
+    userId: user.id
   }
 })
 
-export const onFetchFeedPostSuccess = res =>
+export const onFetchFeedSuccess = res =>
 ({
-  type: 'FETCH_FEED_POST_SUCCESS',
+  type: 'FETCH_FEED_SUCCESS',
   payload: {
     feed: res.body.feed
   }

@@ -11,7 +11,7 @@ const validBody = pipe(
     path(['body']),
     allPass([
         validField('name'),
-        validField('amount_type')
+        validField('post_type')
     ]))
 
 const getValidSlug = slug =>
@@ -44,14 +44,11 @@ const validate = req => {
 module.exports = (req, res) => {
   validate(req)
     .then(slug => {
-      const safePost = merge({
+      const newPost = merge({
         userId: req.user.id,
-        amount: req.body.amount || '',
-        image: req.body.image || '',
-        description: req.body.description || '',
         slug
-      }, pick(['name', 'amount_type', 'is_public'], req.body))
-      return Post.create(safePost)
+      }, pick(['name', 'post_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body))
+      return Post.create(newPost)
     })
     .then(post => res.status(200).json({post}))
     .catch(error => res.status(400).json({error}))

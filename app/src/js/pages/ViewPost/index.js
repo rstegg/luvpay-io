@@ -10,8 +10,8 @@ import PostMenu from '../../components/PostMenu'
 
 import { fetchSinglePost, deletePost } from '../../redux/actions/posts'
 
-const renderAmount = (amt_type, amt) =>
-  amt_type === 'fixed' ? `Price: ${amt}` : 'Open donation'
+const renderType = (post_type, research_type) =>
+  post_type === 'research' ? `Research in ${research_type}` : 'Open post'
 
 class ViewPost extends Component {
   componentWillMount() {
@@ -34,14 +34,14 @@ class ViewPost extends Component {
                   started by <Image avatar src={post.user.image || '/images/placeholder.png'} /> {post.user.username}
                 </NavLink>
               }
-              <Card.Meta>{renderAmount(post.amount_type, post.amount)}, ${post.raised} raised</Card.Meta>
+              <Card.Meta>{renderType(post.post_type, post.research_type)} {post.research_type === 'other' && ` - ${post.research_other}`}</Card.Meta>
               <Card.Description>{post.description}</Card.Description>
             </Card.Content>
             <Card.Content extra>
               { post.userId === user.id ?
                 <RouterButton to={`/posts/edit/${post.slug}`} from={`/post/${post.slug}`} label='Edit' />
                 :
-                <RouterButton to={`/payments/new/${post.slug}`} from={`/post/${post.slug}`} label='Show some post' />
+                <RouterButton to={`/pages/new/${post.slug}`} from={`/post/${post.slug}`} label='Show some post' />
               }
               { post.userId === user.id &&
                 <button onClick={() => deletePost(post.id, user)}>
