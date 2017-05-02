@@ -1,5 +1,3 @@
-const Stripe = window.Stripe
-
 export const validate = values => {
   const errors = {}
   if (!values.name) {
@@ -25,12 +23,3 @@ export const validate = values => {
   }
   return errors
 }
-
-export const validNumber = value =>
-  value && !Stripe.card.validateCardNumber(value) ? 'Invalid Number' : undefined
-
-export const validExpiry = value =>
-  value && !Stripe.card.validateExpiry(value) ? 'Invalid Expiration' : undefined
-
-export const validCVC = value =>
-  value && !Stripe.card.validateCVC(value) ? 'Invalid CVC' : undefined

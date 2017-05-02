@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Field, reduxForm } from 'redux-form'
 
-import { validate, validNumber, validExpiry, validCVC } from './validators'
+import { validate } from './validators'
 
 import InputField from '../../elements/InputField'
 import MaskedInput from 'react-maskedinput'
@@ -37,10 +37,10 @@ const NumberField = ({ input: { value, onChange }, meta: { touched, error } }) =
 const CardForm = ({handleSubmit, previousArticle}) =>
   <Form onSubmit={handleSubmit}>
     <Field component={InputField} name='name' label='Name on card' control='input' placeholder='Full name' />
-    <Field component={NumberField} name='number' validate={[validNumber]} label='Card Number' control='input' placeholder='Number' />
+    <Field component={NumberField} name='number' label='Card Number' control='input' placeholder='Number' />
     <Form.Group widths='equal'>
-      <Field component={ExpiryField} name='expiry' validate={[validExpiry]} control='input' />
-      <Field component={InputField} name='cvc' validate={[validCVC]} label='CVC' control='input' placeholder='CVC' />
+      <Field component={ExpiryField} name='expiry' control='input' />
+      <Field component={InputField} name='cvc' label='CVC' control='input' placeholder='CVC' />
     </Form.Group>
     <Field component={InputField} name='address_zip' label='Zip' placeholder='Zip code' />
       <Button onClick={previousArticle} secondary>Back</Button>
