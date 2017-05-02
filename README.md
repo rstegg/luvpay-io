@@ -12,15 +12,15 @@
 - Feed Items: Article [link], Page [needs funding, about us], Post
 
 ## TODO [app]
-- Fix designs overlapping
-- add more navigation to header
-- work on feed (customizing interests)
-- work on page (not started)
-- add user types (doctor, researcher)
-- work on doctor view (not started-ish)
+- work on feed (customizing interests) [H]
+- add user types (doctor, researcher) [H]
+- work on doctor view (not started-ish) [H]
+- work on page (not started) (extra feature) [M]
+- Fix designs overlapping (temp fix) [L]
+- add more navigation to header [L]
 
 ## TODO [server]
 
-* Refactor duplicated validateBody on each handler
-* Move route prefixes to server/api/v1.js
-* Remove unused routes (account?)
+* Remove unused routes (account?) [M]
+* Refactor duplicated validateBody on each handler [L]
+* Move route prefixes to server/api/v1.js [L]

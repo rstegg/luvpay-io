@@ -24,7 +24,7 @@ const getValidSlug = (slug, id) =>
     })
     .then(post => {
       if(post) {
-        return resolve(getValidSlug(Post, `${slug}-${shortId.generate().slice(0,1)}`))
+        return resolve(getValidSlug(`${slug}-${shortId.generate().slice(0,1)}`, id))
       } else {
         return resolve(slug)
       }

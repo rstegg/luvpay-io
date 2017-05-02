@@ -10,49 +10,16 @@ const BottomNav =
 ({
   isMobile,
   isTablet,
-  user,
-  toLogin,
-  toSignup,
-  toPosts,
-  toPages,
-  toArticles,
-  toFeed,
-  toPublicFeed,
-  toPencil,
-  toFreePencil,
-  toSettings,
-  toPower
+  ...props
 }) =>
   !isMobile && (
     isTablet ?
       <TabletMenu
-        user={user}
-        toLogin={toLogin}
-        toSignup={toSignup}
-        toPosts={toPosts}
-        toPages={toPages}
-        toArticles={toArticles}
-        toFeed={toFeed}
-        toPublicFeed={toPublicFeed}
-        toPencil={toPencil}
-        toFreePencil={toFreePencil}
-        toSettings={toSettings}
-        toPower={toPower}
+        {...props}
       />
     :
       <DesktopMenu
-        user={user}
-        toLogin={toLogin}
-        toSignup={toSignup}
-        toPosts={toPosts}
-        toPages={toPages}
-        toArticles={toArticles}
-        toFeed={toFeed}
-        toPublicFeed={toPublicFeed}
-        toPencil={toPencil}
-        toFreePencil={toFreePencil}
-        toSettings={toSettings}
-        toPower={toPower}
+        {...props}
       />
   )
 
