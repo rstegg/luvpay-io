@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken')
 const routes = require('./routes')
 
 const configureAuth = require('./service/auth')
-const { mailgun } = require('./service/mail')
-const stripe = require('./service/stripe')
 
 module.exports = () => {
   //TODO: move configureAuth to local routes
