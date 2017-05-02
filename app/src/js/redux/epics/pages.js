@@ -1,4 +1,4 @@
-import { onFetchPagesSuccess, onFetchSinglePageSuccess, onCreatePageSuccess } from '../actions/pages'
+import { onFetchPagesSuccess, onFetchSinglePageSuccess, onCreatePageSuccess, onUploadPageImageSuccess } from '../actions/pages'
 import su from 'superagent'
 import { Observable } from 'rxjs/Rx'
 
@@ -24,6 +24,13 @@ const api = {
       .set('Authorization', user.token)
     return Observable.fromPromise(request)
   },
+  uploadPageImage: ({image, token}) => {
+    const request = su.post(`${API_HOST}/image/post`)
+      .attach('image', image)
+      .set('Accept', 'application/json')
+      .set('Authorization', token)
+    return Observable.fromPromise(request)
+  }
 }
 
 export const fetchPages = action$ =>
@@ -53,5 +60,15 @@ export const createPage = action$ =>
         .map(onCreatePageSuccess)
         .catch(error => Observable.of({
           type: 'CREATE_PAGE_FAILURE'
+        }))
+      )
+
+export const uploadPageImage = action$ =>
+  action$.ofType('UPLOAD_PAGE_IMAGE')
+    .mergeMap(action =>
+      api.uploadPageImage(action.payload)
+        .map(onUploadPageImageSuccess)
+        .catch(error => Observable.of({
+          type: 'UPLOAD_PAGE_IMAGE_FAILURE'
         }))
       )

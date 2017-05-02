@@ -18,6 +18,10 @@ export default function(state = initialState, action) {
           isCreated: true
         }
       })
+    case 'UPLOAD_PAGE_IMAGE_SUCCESS':
+      return Object.assign({}, state, {
+        image: action.payload.image,
+      })
     case 'FETCH_SINGLE_PAGE_SUCCESS':
       return Object.assign({}, state, {
         current: action.payload.page

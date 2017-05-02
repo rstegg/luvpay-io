@@ -2,9 +2,7 @@ import { REHYDRATE } from 'redux-persist/constants'
 
 const initialState = {
   current: {},
-  new: {
-    image: null
-  },
+  new: {},
   list: [],
   free: {}
 }

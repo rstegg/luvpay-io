@@ -8,7 +8,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    link: {
+    page_type: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    research_type: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    research_other: {
       type: DataTypes.STRING,
       allowNull: true
     },

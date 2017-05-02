@@ -22,7 +22,7 @@ app
   .use(passport.initialize())
 
 
-const port = process.env.PORT || 3030
+const port = process.env.PORT || 3000
 http.listen(port, function() {
   console.log(`Listening on port ${port}`)
 })

@@ -53,6 +53,24 @@ export const onCreatePageSuccess = res =>
   }
 })
 
+export const uploadPageImage = (image, {token}) =>
+({
+  type: 'UPLOAD_PAGE_IMAGE',
+  payload: {
+    image,
+    token
+  }
+})
+
+export const onUploadPageImageSuccess = res =>
+({
+  type: 'UPLOAD_PAGE_IMAGE_SUCCESS',
+  payload: {
+    image: res.body.image
+  }
+})
+
+
 export const setCurrentPage = page =>
 ({
   type: 'SET_CURRENT_PAGE',

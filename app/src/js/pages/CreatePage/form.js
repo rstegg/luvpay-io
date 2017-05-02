@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
 
-import AmountForm from './amount-form'
-import CardForm from './card-form'
+import NameForm from './name-form'
+import DetailsForm from './details-form'
 
 export default class CreatePageForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      page: 1
+      pageNum: 1
     }
   }
   nextPage() {
-    this.setState({ page: 2 })
+    this.setState({ pageNum: 2 })
   }
   previousPage() {
-    this.setState({ page: 1 })
+    this.setState({ pageNum: 1 })
   }
   render() {
-    const { onSubmit, post } = this.props
-    const { page } = this.state
+    const { onSubmit, page } = this.props
+    const { pageNum } = this.state
     return (
       <div>
-        {page === 1 && <AmountForm onSubmit={() => this.nextPage()} post={post} />}
-        {page === 2 && <CardForm previousPage={() => this.previousPage()} onSubmit={onSubmit} />}
+        {pageNum === 1 && <NameForm onSubmit={() => this.nextPage()} page={page} />}
+        {pageNum === 2 && <DetailsForm previousPage={() => this.previousPage()} onSubmit={onSubmit} />}
       </div>
     )
   }

@@ -8,10 +8,10 @@ const { allPass, merge, path, pick, pipe } = require('ramda')
 const validField = p => obj => Boolean(path([p], obj))
 
 const validBody = pipe(
-    path(['body']),
+    path(['body', 'page']),
     allPass([
         validField('name'),
-        validField('post_type')
+        validField('page_type')
     ]))
 
 const getValidSlug = slug =>
@@ -32,7 +32,7 @@ const validate = req => {
   if (!validBody(req)) return Promise.reject('missing fields')
 
   const slug =
-    req.body.name
+    req.body.page.name
       .replace("'", '')
       .replace(/[^a-z0-9]/gi, '-')
       .toLowerCase()
@@ -44,14 +44,11 @@ const validate = req => {
 module.exports = (req, res) => {
   validate(req)
     .then(slug => {
-      const safePage = merge({
+      const newPage = merge({
         userId: req.user.id,
-        amount: req.body.amount || '',
-        image: req.body.image || '',
-        description: req.body.description || '',
         slug
-      }, pick(['name', 'post_type', 'is_public'], req.body))
-      return Page.create(safePage)
+      }, pick(['name', 'page_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body.page))
+      return Page.create(newPage)
     })
     .then(page => res.status(200).json({page}))
     .catch(error => res.status(400).json({error}))
