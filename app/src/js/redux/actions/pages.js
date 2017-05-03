@@ -53,6 +53,40 @@ export const onCreatePageSuccess = res =>
   }
 })
 
+export const deletePage = (pageId, user) =>
+({
+  type: 'JOIN_PAGE',
+  payload: {
+    pageId,
+    user
+  }
+})
+
+export const onDeletePageSuccess = res =>
+({
+  type: 'JOIN_PAGE_SUCCESS',
+  payload: {
+    page: res.body.page
+  }
+})
+
+export const joinPage = (pageId, user) =>
+({
+  type: 'JOIN_PAGE',
+  payload: {
+    pageId,
+    user
+  }
+})
+
+export const onJoinPageSuccess = res =>
+({
+  type: 'JOIN_PAGE_SUCCESS',
+  payload: {
+    page: res.body.page
+  }
+})
+
 export const uploadPageImage = (image, {token}) =>
 ({
   type: 'UPLOAD_PAGE_IMAGE',

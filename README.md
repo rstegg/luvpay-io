@@ -3,18 +3,16 @@
 ## Roadmap (MVP1)
 
 - Profile:
-  - Doctor: Username, bio, interests, contact
-  - Researcher: Username, bio, research, contact
+  - Username, bio, interests, contact
+  - Settings: Following, TODO: FINISH THIS PART
 - Feed:
-  - Doctor: Customize your interests
-  - Researcher: the current layout, polish
-- Feed (Following, recommended [interest], promoted [needs funding])
-- Feed Items: Article [link], Page [needs funding, about us], Post
+  - Customize your interests
+  - polish
+- Feed (Following, recommended, promoted)
+- Feed Items: Blog post (AKA Article) [link], Page [about us], Post
 
 ## TODO [app]
 - work on feed (customizing interests) [H]
-- add user types (doctor, researcher) [H]
-- work on doctor view (not started-ish) [H]
 - work on page (not started) (extra feature) [M]
 - Fix designs overlapping (temp fix) [L]
 - add more navigation to header [L]

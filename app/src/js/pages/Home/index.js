@@ -7,7 +7,7 @@ import FeedList from './list'
 import { fetchPublicFeed } from '../../redux/actions/feed'
 import { setCurrentPost } from '../../redux/actions/posts'
 
-import RootLayout from '../../components/layouts/Root'
+
 import RouterButton from '../../elements/RouterButton'
 
 class Home extends Component {
@@ -17,7 +17,7 @@ class Home extends Component {
   render() {
     const { setCurrentPost } = this.props
     return (
-      <RootLayout>
+      
         <Card className='posts'>
           <Card.Content>
             <Card.Header>Public Posts</Card.Header>
@@ -32,7 +32,7 @@ class Home extends Component {
             <RouterButton to='/posts/new' from='/' label='start a post' />
           </Card.Content>
         </Card>
-      </RootLayout>
+      
     )
   }
 }

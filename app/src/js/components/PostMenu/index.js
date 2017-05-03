@@ -28,7 +28,7 @@ const PostMenu = ({url, user, sharePost, postId}) =>
     </Segment>
     <Segment>
       <TwitterShareButton
-        title="Show some love"
+        title="Kool, Wow"
         url={url}
         style={{cursor: 'pointer'}}>
           <TwitterIcon size={32} round={true} />

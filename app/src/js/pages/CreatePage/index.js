@@ -7,7 +7,7 @@ import CreatePageForm from './form'
 
 import { createPage, uploadPageImage } from '../../redux/actions/pages'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 import Dropzone from '../../components/Dropzone'
 
@@ -23,7 +23,7 @@ const CreatePage = ({ user, page, createPage, uploadPageImage, image }) =>
   page.isCreated ?
     <Redirect to='/pages' from='/pages/new' />
   :
-    <RootLayout>
+    
       <Card>
         <Avatar image={image || page.image} uploadPageImage={img => uploadPageImage(img[0], user)} />
         <Card.Content>
@@ -36,7 +36,7 @@ const CreatePage = ({ user, page, createPage, uploadPageImage, image }) =>
           </Card.Description>
         </Card.Content>
       </Card>
-    </RootLayout>
+    
 
 const mapStateToProps = ({user, pages}) =>
 ({

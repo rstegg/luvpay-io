@@ -2,16 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { Redirect, NavLink } from 'react-router-dom'
-import { Card, Image, Label } from 'semantic-ui-react'
-import RootLayout from '../../components/layouts/Root'
-import RouterButton from '../../elements/RouterButton'
+import { Card, Image, Button, Grid } from 'semantic-ui-react'
 
 import PostMenu from '../../components/PostMenu'
 
 import { fetchSinglePost, deletePost } from '../../redux/actions/posts'
 
-const renderType = (post_type, research_type) =>
-  post_type === 'research' ? `Research in ${research_type}` : 'Open post'
+const renderType = (post_type, topic) =>
+  post_type === 'research' ? `Research in ${topic}` : 'Open post'
 
 class ViewPost extends Component {
   componentWillMount() {
@@ -23,36 +21,40 @@ class ViewPost extends Component {
     if(!post) {
       return <Redirect to='/' />
     }
-      return (
-        <RootLayout>
-          <Card>
-            <Image src={post.image || '/images/postholder.png'} className='post--image' />
-            <Card.Content>
-              <Card.Header>{post.name}</Card.Header>
-              {post.user &&
-                <NavLink to={`/user/${post.user.username}`} from={`/post/${post.slug}`}>
-                  started by <Image avatar src={post.user.image || '/images/placeholder.png'} /> {post.user.username}
-                </NavLink>
-              }
-              <Card.Meta>{renderType(post.post_type, post.research_type)} {post.research_type === 'other' && ` - ${post.research_other}`}</Card.Meta>
-              <Card.Description>{post.description}</Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              { post.userId === user.id ?
-                <RouterButton to={`/posts/edit/${post.slug}`} from={`/post/${post.slug}`} label='Edit' />
-                :
-                <RouterButton to={`/pages/new/${post.slug}`} from={`/post/${post.slug}`} label='Show some post' />
-              }
-              { post.userId === user.id &&
-                <button onClick={() => deletePost(post.id, user)}>
-                  <Label basic>Delete</Label>
-                </button>
-              }
-            </Card.Content>
-          </Card>
-          <PostMenu url={`https://postwau.io/post/${post.slug}`} postId={post.id} />
-        </RootLayout>
-      )
+    return (
+      <Grid>
+        <Grid.Column>
+          <Grid.Row>
+            <Card>
+              <Image src={post.image || '/images/postholder.png'} className='post--image' />
+              <Card.Content>
+                <Card.Header>{post.name}</Card.Header>
+                {post.user &&
+                  <NavLink to={`/user/${post.user.username}`} from={`/post/${post.slug}`}>
+                    started by <Image avatar src={post.user.image || '/images/placeholder.png'} /> {post.user.username}
+                  </NavLink>
+                }
+                <Card.Meta>{renderType(post.post_type, post.topic)} {post.topic === 'other' && ` - ${post.topic_other}`}</Card.Meta>
+                <Card.Description>{post.description}</Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                { post.userId === user.id ?
+                  <div className='ui two buttons'>
+                    <Button as={NavLink} to={`/posts/edit/${post.slug}`} from={`/post/${post.slug}`} basic color='green'>Edit</Button>
+                    <Button basic color='red' onClick={() => deletePost(post.id, user)}>Delete</Button>
+                  </div>
+                  :
+                  <Button as={NavLink} to={`/pages/new/${post.slug}`} from={`/post/${post.slug}`} basic color='green'>Comments</Button>
+                }
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+          <Grid.Row>
+            <PostMenu url={`https://kuwau.com/post/${post.slug}`} postId={post.id} />
+          </Grid.Row>
+        </Grid.Column>
+      </Grid>
+    )
   }
 }
 

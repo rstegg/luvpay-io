@@ -8,7 +8,7 @@ import PagesList from './list'
 
 import { fetchPages, setCurrentPage, refreshPages } from '../../redux/actions/pages'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 class Pages extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class Pages extends Component {
       return <Redirect to='/login' from='/pages' />
     }
     return (
-      <RootLayout>
+      
         <Card className='pages'>
           <Card.Content className='card__list'>
             <Card.Header>Pages</Card.Header>
@@ -38,7 +38,7 @@ class Pages extends Component {
             <RouterButton to='/pages/new' from='/pages' label='start a page' />
           </Card.Content>
         </Card>
-      </RootLayout>
+      
     )
   }
 }

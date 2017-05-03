@@ -6,7 +6,7 @@ import RouterButton from '../../elements/RouterButton'
 import { Card, Image } from 'semantic-ui-react'
 import { fetchProfile, refreshProfileEditing } from '../../redux/actions/profile'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 class ViewProfile extends Component {
   componentWillMount() {
@@ -16,7 +16,7 @@ class ViewProfile extends Component {
   render() {
     const { user, profile } = this.props
     return (
-      <RootLayout>
+      
         <Card>
           <Image src={profile.image || '/images/placeholder.png'} className='profimg' />
           <Card.Content>
@@ -27,7 +27,7 @@ class ViewProfile extends Component {
             <RouterButton to="/profile/edit" from="/profile" label="Edit" />
           </Card.Content>}
         </Card>
-      </RootLayout>
+      
     )
   }
 }

@@ -48,7 +48,7 @@ module.exports = (req, res) => {
       const newPage = merge({
         userId: req.user.id,
         slug
-      }, pick(['name', 'page_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body.page))
+      }, pick(['name', 'page_type', 'is_public', 'topic', 'topic_other', 'image', 'description'], req.body.page))
       return Page.create(newPage)
     })
     .then(page => res.status(200).json({page}))

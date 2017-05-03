@@ -9,7 +9,7 @@ import FeedList from './list'
 import { fetchFeed } from '../../redux/actions/feed'
 import { setCurrentPost } from '../../redux/actions/posts'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 class Feed extends Component {
   componentWillMount() {
@@ -18,7 +18,7 @@ class Feed extends Component {
   render() {
     const { setCurrentPost, toSettings, user } = this.props
     return (
-      <RootLayout>
+      
         <Card className='posts'>
           <Card.Content>
             <Card.Header>Your Feed</Card.Header>
@@ -35,7 +35,7 @@ class Feed extends Component {
             </button>
           </Card.Content>
         </Card>
-      </RootLayout>
+      
     )
   }
 }

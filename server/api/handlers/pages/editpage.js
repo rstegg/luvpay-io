@@ -49,7 +49,7 @@ module.exports = (req, res) => {
     .then(slug => {
       const updatedPage = merge({
         slug
-      }, pick(['name', 'page_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body.page))
+      }, pick(['name', 'page_type', 'is_public', 'topic', 'topic_other', 'image', 'description'], req.body.page))
       return Page.update(updatedPage, { where: { id: req.params.id, userId: req.user.id } })
     })
     .then(page => res.status(200).json({page}))

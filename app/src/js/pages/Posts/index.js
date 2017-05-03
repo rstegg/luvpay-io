@@ -8,7 +8,7 @@ import RouterButton from '../../elements/RouterButton'
 
 import { fetchPosts, refreshPosts, setCurrentPost } from '../../redux/actions/posts'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 class Posts extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class Posts extends Component {
       return <Redirect to="/login" from="/posts" />
     }
     return (
-      <RootLayout>
+      
         <Card className='posts'>
           <Card.Content>
             <Card.Header>Posts</Card.Header>
@@ -38,7 +38,7 @@ class Posts extends Component {
             <RouterButton to='/posts/new' from='/posts' label='start a post' />
           </Card.Content>
         </Card>
-      </RootLayout>
+      
     )
   }
 }

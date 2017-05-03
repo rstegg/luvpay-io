@@ -18,11 +18,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: 'open'
     },
-    research_type: {
+    topic: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    research_other: {
+    topic_other: {
       type: DataTypes.STRING,
       allowNull: true
     },

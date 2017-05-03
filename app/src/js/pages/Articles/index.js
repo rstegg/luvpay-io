@@ -8,7 +8,7 @@ import ArticlesList from './list'
 
 import { fetchArticles, setCurrentArticle, refreshArticles } from '../../redux/actions/articles'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 class Articles extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class Articles extends Component {
       return <Redirect to='/login' from='/articles' />
     }
     return (
-      <RootLayout>
+      
         <Card className='articles'>
           <Card.Content className='card__list'>
             <Card.Header>Articles</Card.Header>
@@ -38,7 +38,7 @@ class Articles extends Component {
             <RouterButton to='/articles/new' from='/articles' label='start an article' />
           </Card.Content>
         </Card>
-      </RootLayout>
+      
     )
   }
 }

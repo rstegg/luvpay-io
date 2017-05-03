@@ -7,7 +7,7 @@ import EditProfileForm from './form'
 
 import { editPage, uploadPageImage } from '../../redux/actions/pages'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 import Dropzone from '../../components/Dropzone'
 
@@ -22,7 +22,7 @@ const EditProfile = ({ user, page, image, editPage, uploadPageImage }) =>
   : page.isEdited ?
     <Redirect to='/pages' from='/pages/edit' />
   :
-  <RootLayout>
+  
     <Card>
       <Avatar image={image || page.image} uploadPageImage={img => uploadPageImage(img[0], user)} />
       <Card.Content>
@@ -32,7 +32,7 @@ const EditProfile = ({ user, page, image, editPage, uploadPageImage }) =>
         </Card.Description>
       </Card.Content>
     </Card>
-  </RootLayout>
+  
 
 const mapStateToProps = ({user, pages}) =>
 ({

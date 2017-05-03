@@ -7,8 +7,6 @@ import CreatePostForm from './form'
 
 import { createPost, uploadPostImage } from '../../redux/actions/posts'
 
-import RootLayout from '../../components/layouts/Root'
-
 import Dropzone from '../../components/Dropzone'
 
 const Avatar = ({image, uploadPostImage}) =>
@@ -22,7 +20,6 @@ const CreatePost = ({ user, post, image, createPost, uploadPostImage }) =>
   : post.isCreated ?
     <Redirect to='/posts' from='/posts/new' />
   :
-  <RootLayout>
     <Card>
       <Avatar image={image || post.image} uploadPostImage={img => uploadPostImage(img[0], user)} />
       <Card.Content>
@@ -32,7 +29,6 @@ const CreatePost = ({ user, post, image, createPost, uploadPostImage }) =>
         </Card.Description>
       </Card.Content>
     </Card>
-  </RootLayout>
 
 const mapStateToProps = ({user, posts}) =>
 ({

@@ -33,8 +33,8 @@ const PageDetailsForm = ({handleSubmit, pageTypeValue, researchTypeValue}) =>
     <Field component={InputField} name='name' label='Name' placeholder='Page name' />
     <Field component={AreaField} name='description' label='Description' placeholder='Page descripton'  />
     <Field component={SelectField} name='page_type' label='Type' placeholder='Type' options={options} />
-    {pageTypeValue === 'research' && <Field component={SelectField} name='research_type' label='Type of research' placeholder='Type of research' options={research_options} />}
-    {researchTypeValue === 'other' && <Field component={InputField} name='research_other' label='Field of research' placeholder='Field of research' />}
+    {pageTypeValue === 'research' && <Field component={SelectField} name='topic' label='Type of research' placeholder='Type of research' options={research_options} />}
+    {researchTypeValue === 'other' && <Field component={InputField} name='topic_other' label='Field of research' placeholder='Field of research' />}
     <Field component={CheckboxField} name='is_public' />
     <Form.Button type='submit' primary>Submit</Form.Button>
   </Form>
@@ -49,7 +49,7 @@ const selector = formValueSelector('newPage')
 const mapStateToProps = state =>
 ({
   pageTypeValue: selector(state, 'page_type'),
-  researchTypeValue: selector(state, 'research_type')
+  researchTypeValue: selector(state, 'topic')
 })
 
 export default connect(mapStateToProps)(connectedPageDetailsForm)

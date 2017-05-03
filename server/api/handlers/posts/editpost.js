@@ -49,7 +49,7 @@ module.exports = (req, res) => {
     .then(slug => {
       const safePost = merge({
         slug
-      }, pick(['name', 'post_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body))
+      }, pick(['name', 'post_type', 'is_public', 'topic', 'topic_other', 'image', 'description'], req.body))
       return Post.update(safePost, { where: { id: req.params.id, userId: req.user.id } })
     })
     .then(post => res.status(200).json({post}))

@@ -47,7 +47,7 @@ module.exports = (req, res) => {
       const newPost = merge({
         userId: req.user.id,
         slug
-      }, pick(['name', 'post_type', 'is_public', 'research_type', 'research_other', 'image', 'description'], req.body.post))
+      }, pick(['name', 'post_type', 'is_public', 'topic', 'topic_other', 'image', 'description'], req.body.post))
       return Post.create(newPost)
     })
     .then(post => res.status(200).json({post}))

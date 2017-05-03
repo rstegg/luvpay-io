@@ -7,7 +7,7 @@ import CreateArticleForm from './form'
 
 import { createArticle } from '../../redux/actions/articles'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 const CreateArticle = ({ user, article, createArticle }) =>
   !user.isAuthenticated ?
@@ -16,7 +16,7 @@ const CreateArticle = ({ user, article, createArticle }) =>
   article.isCreated ?
     <Redirect to='/articles' from='/articles/new' />
   :
-    <RootLayout>
+    
       <Card>
         <Card.Content>
           <Card.Header>New Article</Card.Header>
@@ -28,7 +28,7 @@ const CreateArticle = ({ user, article, createArticle }) =>
           </Card.Description>
         </Card.Content>
       </Card>
-    </RootLayout>
+
 
 const mapStateToProps = ({user, articles}) =>
 ({

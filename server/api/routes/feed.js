@@ -27,7 +27,7 @@ module.exports = (options) => {
       }], where: {
         $or: [
           { post_type: { $any: req.user.interest_types } },
-          { research_type: { $any: req.user.interests } }
+          { topic: { $any: req.user.interests } }
         ]
       }
     })

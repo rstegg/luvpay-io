@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { Card, Label } from 'semantic-ui-react'
-import RootLayout from '../../components/layouts/Root'
+
 import ArticleMenu from '../../components/ArticleMenu'
 
 import { fetchSingleArticle } from '../../redux/actions/articles'
@@ -19,11 +19,8 @@ class ViewArticle extends Component {
       return <Redirect to='/' />
     }
     return (
-      <RootLayout>
-        <div className='pay--menu'>
-          <ArticleMenu />
-        </div>
         <Card>
+          <ArticleMenu />
           <Card.Content>
             <Card.Header>{user.name}</Card.Header>
             <Card.Meta>Paid - ${article.amount}</Card.Meta>
@@ -32,7 +29,7 @@ class ViewArticle extends Component {
             </Card.Description>
           </Card.Content>
         </Card>
-      </RootLayout>
+
     )
   }
 }

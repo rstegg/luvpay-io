@@ -33,8 +33,8 @@ const EditPostForm = ({handleSubmit, postTypeValue, researchTypeValue}) =>
     <Field component={InputField} name='name' type='text' label='Name' control='input' placeholder='Post name' />
     <Field component={AreaField} name='description' type='text' label='Description' control='input' placeholder='Post descripton'  />
     <Field component={SelectField} name='post_type' label='Type' placeholder='Type' options={options} />
-    {postTypeValue === 'research' && <Field component={SelectField} name='research_type' label='Type of research' placeholder='Type of research' options={research_options} />}
-    {researchTypeValue === 'other' && <Field component={InputField} name='research_other' label='Field of research' placeholder='Field of research' />}
+    {postTypeValue === 'research' && <Field component={SelectField} name='topic' label='Type of research' placeholder='Type of research' options={research_options} />}
+    {researchTypeValue === 'other' && <Field component={InputField} name='topic_other' label='Field of research' placeholder='Field of research' />}
     <Field component={CheckboxField} name='is_public' />
     <Form.Button type='submit' primary>Submit</Form.Button>
   </Form>
@@ -49,7 +49,7 @@ const selector = formValueSelector('editPost')
 const mapStateToProps = state =>
 ({
   postTypeValue: selector(state, 'post_type'),
-  researchTypeValue: selector(state, 'research_type'),
+  researchTypeValue: selector(state, 'topic'),
   initialValues: state.posts.current
 })
 

@@ -31,28 +31,32 @@ import ViewProfile from './pages/ViewProfile'
 
 import store, { history } from './store'
 
+import RootLayout from './components/layouts/Root'
+
 render(
   <Provider store={store}>
     <Router history={history}>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/feed' component={Feed} />
-          <Route exact path='/posts' component={Posts} />
-          <Route exact path='/posts/new' component={CreatePost} />
-          <Route exact path='/posts/edit/:id' component={EditPost} />
-          <Route exact path='/post/:id' component={ViewPost} />
-          <Route exact path='/pages' component={Pages} />
-          <Route exact path='/pages/new' component={CreatePage} />
-          <Route exact path='/pages/edit/:id' component={EditPage} />
-          <Route exact path='/page/:id' component={ViewPage} />
-          <Route exact path='/articles' component={Articles} />
-          <Route exact path='/articles/new' component={CreateArticle} />
-          <Route exact path='/article/:id' component={ViewArticle} />
-          <Route exact path='/user/:id' component={ViewProfile} />
-          <Route exact path='/profile/edit' component={EditProfile} />
-        </Switch>
+        <RootLayout>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/feed' component={Feed} />
+            <Route exact path='/posts' component={Posts} />
+            <Route exact path='/posts/new' component={CreatePost} />
+            <Route exact path='/posts/edit/:id' component={EditPost} />
+            <Route exact path='/post/:id' component={ViewPost} />
+            <Route exact path='/pages' component={Pages} />
+            <Route exact path='/pages/new' component={CreatePage} />
+            <Route exact path='/pages/edit/:id' component={EditPage} />
+            <Route exact path='/page/:id' component={ViewPage} />
+            <Route exact path='/articles' component={Articles} />
+            <Route exact path='/articles/new' component={CreateArticle} />
+            <Route exact path='/article/:id' component={ViewArticle} />
+            <Route exact path='/user/:id' component={ViewProfile} />
+            <Route exact path='/profile/edit' component={EditProfile} />
+          </Switch>
+        </RootLayout>
     </Router>
   </Provider>,
   document.querySelector('#root')

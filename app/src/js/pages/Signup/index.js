@@ -9,7 +9,7 @@ import { onSignupSubmit } from '../../redux/actions/signup'
 import SignupForm from './form'
 import RouterButton from '../../elements/RouterButton'
 
-import RootLayout from '../../components/layouts/Root'
+
 
 const Signup = ({
   user,
@@ -21,7 +21,7 @@ const Signup = ({
   : user.isRegistered ?
     <Redirect to='/' from='/signup' />
   :
-    <RootLayout>
+    
       <Card>
         <Card.Content>
           <Card.Header>Signup</Card.Header>
@@ -34,7 +34,7 @@ const Signup = ({
           <RouterButton to="/login" from="/signup" prefix="Have an account?" label="Login" />
         </Card.Content>
       </Card>
-    </RootLayout>
+    
 
 const mapStateToProps = ({user, posts}) =>
 ({
