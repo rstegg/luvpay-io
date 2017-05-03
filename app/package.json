@@ -7,7 +7,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "staging": "rm -rf ../build && mv build ../server/build",
-    "deploy": "rsync -avh ../build root@kuwau.com:/root/kuwau",
+    "deploy": "rsync -avh ../server/build root@kuwau.com:/root/server",
     "deploy:build": "npm-run-all --serial build staging deploy",
     "test": "node scripts/test.js --env=jsdom"
   },

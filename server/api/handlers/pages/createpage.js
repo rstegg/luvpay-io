@@ -11,8 +11,7 @@ const validBody = pipe(
     path(['body', 'page']),
     allPass([
         validField('name'),
-        validField('page_type'),
-        validField('is_public')
+        validField('page_type')
     ]))
 
 const getValidSlug = slug =>
