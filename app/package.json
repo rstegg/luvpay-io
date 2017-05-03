@@ -1,5 +1,5 @@
 {
-  "name": "luff-server",
+  "name": "kuwau-app",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3030",
