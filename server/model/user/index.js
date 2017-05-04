@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     interest_types: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
-      defaultValue: ['open', 'research']
+      defaultValue: ['open', 'topic']
     },
     interests: {
       type: DataTypes.ARRAY(DataTypes.STRING),

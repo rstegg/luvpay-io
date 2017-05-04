@@ -11,7 +11,7 @@ import AreaField from '../../elements/AreaField'
 import SelectField from '../../elements/SelectField'
 
 const options = [
-  { key: 'research', value: 'research', text: 'Research' },
+  { key: 'topic', value: 'topic', text: 'Topic' },
   { key: 'open', value: 'open', text: 'Open' }
 ]
 
@@ -28,13 +28,13 @@ const CheckboxField = ({ input: { value, onChange } }) =>
     checked={!!value}
     onChange={(_,data) => onChange(data.checked)} />
 
-const PageDetailsForm = ({handleSubmit, pageTypeValue, researchTypeValue}) =>
+const PageDetailsForm = ({handleSubmit, pageTypeValue, topicTypeValue}) =>
   <Form onSubmit={handleSubmit}>
     <Field component={InputField} name='name' label='Name' placeholder='Page name' />
     <Field component={AreaField} name='description' label='Description' placeholder='Page descripton'  />
     <Field component={SelectField} name='page_type' label='Type' placeholder='Type' options={options} />
-    {pageTypeValue === 'research' && <Field component={SelectField} name='topic' label='Type of research' placeholder='Type of research' options={topic_options} />}
-    {researchTypeValue === 'other' && <Field component={InputField} name='topic_other' label='Field of research' placeholder='Field of research' />}
+    {pageTypeValue === 'topic' && <Field component={SelectField} name='topic' label='Type of topic' placeholder='Type of topic' options={topic_options} />}
+    {topicTypeValue === 'other' && <Field component={InputField} name='topic_other' label='Topic name' placeholder='Topic name' />}
     <Field component={CheckboxField} name='is_public' />
     <Form.Button type='submit' primary>Submit</Form.Button>
   </Form>
@@ -49,7 +49,7 @@ const selector = formValueSelector('newPage')
 const mapStateToProps = state =>
 ({
   pageTypeValue: selector(state, 'page_type'),
-  researchTypeValue: selector(state, 'topic')
+  topicTypeValue: selector(state, 'topic')
 })
 
 export default connect(mapStateToProps)(connectedPageDetailsForm)

@@ -9,7 +9,7 @@ import PostMenu from '../../components/PostMenu'
 import { fetchSinglePost, deletePost } from '../../redux/actions/posts'
 
 const renderType = (post_type, topic) =>
-  post_type === 'research' ? `Research in ${topic}` : 'Open post'
+  post_type === 'topic' ? `Topic in ${topic}` : 'Open post'
 
 class ViewPost extends Component {
   componentWillMount() {

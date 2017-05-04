@@ -12,7 +12,7 @@ export const validate = values => {
   if (values.page_type === 'other' && !values.topic) {
     errors.topic = 'Required'
   }
-  if (values.topic === 'research' && !values.topic_other) {
+  if (values.topic === 'topic' && !values.topic_other) {
     errors.topic_other = 'Required'
   }
   return errors
