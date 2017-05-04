@@ -15,7 +15,7 @@ const options = [
   { key: 'open', value: 'open', text: 'Open' }
 ]
 
-const research_options = [
+const topic_options = [
   { key: 'disease', value: 'disease', text: 'Disease' },
   { key: 'engineering', value: 'engineering', text: 'Engineering' },
   { key: 'other', value: 'other', text: 'Other' },
@@ -33,7 +33,7 @@ const CreatePostForm = ({handleSubmit, postTypeValue, researchTypeValue}) =>
     <Field component={InputField} name='name' label='Name' placeholder='Post name' />
     <Field component={AreaField} name='description' label='Description' placeholder='Post descripton'  />
     <Field component={SelectField} name='post_type' label='Type' placeholder='Type' options={options} />
-    {postTypeValue === 'research' && <Field component={SelectField} name='topic' label='Type of research' placeholder='Type of research' options={research_options} />}
+    {postTypeValue === 'research' && <Field component={SelectField} name='topic' label='Type of research' placeholder='Type of research' options={topic_options} />}
     {researchTypeValue === 'other' && <Field component={InputField} name='topic_other' label='Field of research' placeholder='Field of research' />}
     <Field component={CheckboxField} name='is_public' />
     <Form.Button type='submit' primary>Submit</Form.Button>

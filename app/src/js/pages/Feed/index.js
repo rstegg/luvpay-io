@@ -18,24 +18,22 @@ class Feed extends Component {
   render() {
     const { setCurrentPost, toSettings, user } = this.props
     return (
-      
-        <Card className='posts'>
-          <Card.Content>
-            <Card.Header>Your Feed</Card.Header>
-          </Card.Content>
-          <Card.Content>
-            <FeedList
-              feed={this.props.feed || []}
-              setCurrentPost={setCurrentPost}
-            />
-          </Card.Content>
-          <Card.Content extra>
-            <button onClick={() => toSettings(user.username)}>
-              <Label basic>Feed settings</Label>
-            </button>
-          </Card.Content>
-        </Card>
-      
+      <Card className='posts'>
+        <Card.Content>
+          <Card.Header>Your Feed</Card.Header>
+        </Card.Content>
+        <Card.Content>
+          <FeedList
+            feed={this.props.feed || []}
+            setCurrentPost={setCurrentPost}
+          />
+        </Card.Content>
+        <Card.Content extra>
+          <button onClick={() => toSettings(user.username)}>
+            <Label basic>Feed settings</Label>
+          </button>
+        </Card.Content>
+      </Card>
     )
   }
 }

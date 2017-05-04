@@ -42,8 +42,8 @@ class ViewPage extends Component {
           </Grid.Column>
           <Grid.Column width={10}>
             {page.user &&
-              <Label to={`/user/${page.user.username}`} from={`/page/${page.slug}`} as={NavLink} basic>
-                <Image avatar src={page.user.image || '/images/placeholder.png'} /> {page.user.username}
+              <Label to={`/user/${page.user.username}`} from={`/page/${page.slug}`} as={NavLink} basic image>
+                <img src={page.user.image || '/images/placeholder.png'} alt={user.username} /> {page.user.username}
               </Label>
             }
           </Grid.Column>

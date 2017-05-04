@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Button, Image, Menu } from 'semantic-ui-react'
+import { Button, Menu, Label } from 'semantic-ui-react'
 
 import { NavLink } from 'react-router-dom'
 import Flydown from './Flydown'
@@ -18,10 +18,9 @@ const Header = ({user, isMobile}) =>
           :
           <Button.Group>
             <NavLink to={`/user/${user.username}`} from="/">
-              <Button primary>
-                {user.image && <Image src={user.image} alt={user.username} avatar /> }
-                Profile
-              </Button>
+              <Label basic image>
+                <img src={user.image || '/images/placeholder.png'} alt={user.username} /> {user.username}
+              </Label>
             </NavLink>
           </Button.Group>
         }
