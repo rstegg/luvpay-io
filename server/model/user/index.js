@@ -68,10 +68,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        is: ["^[a-z]+$",'i'],
-      }
+      allowNull: false
     },
     address: {
       type: DataTypes.STRING,
