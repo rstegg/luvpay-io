@@ -1,5 +1,5 @@
 const { models } = require('../../../db')
-const { Post } = models
+const { User } = models
 
 const { mailgun } = require('../../service/mail')
 
