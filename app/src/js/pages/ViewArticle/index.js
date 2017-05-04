@@ -14,22 +14,22 @@ class ViewArticle extends Component {
     this.props.fetchSingleArticle(params.id, user)
   }
   render() {
-    const { article, user } = this.props
+    const { article } = this.props
     if(!article) {
       return <Redirect to='/' />
     }
     return (
-        <Card>
-          <ArticleMenu />
-          <Card.Content>
-            <Card.Header>{user.name}</Card.Header>
-            <Card.Meta>Paid - ${article.amount}</Card.Meta>
-            <Card.Description>
-              <Label basic>Note: {article.name}</Label>
-            </Card.Description>
-          </Card.Content>
-        </Card>
-
+      <Card>
+        <ArticleMenu />
+        <Card.Content>
+          <Card.Header>{article.name}</Card.Header>
+          <Card.Meta>{article.user.username}</Card.Meta>
+          <Card.Meta as='a' to={article.url}>{article.url}</Card.Meta>
+          <Card.Description>
+            <Label basic>{article.description}</Label>
+          </Card.Description>
+        </Card.Content>
+      </Card>
     )
   }
 }

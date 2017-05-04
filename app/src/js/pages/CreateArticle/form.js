@@ -8,18 +8,6 @@ import { validate } from './validators'
 
 import InputField from '../../elements/InputField'
 import AreaField from '../../elements/AreaField'
-import SelectField from '../../elements/SelectField'
-
-const options = [
-  { key: 'topic', value: 'topic', text: 'Topic' },
-  { key: 'open', value: 'open', text: 'Open' }
-]
-
-const topic_options = [
-  { key: 'disease', value: 'disease', text: 'Disease' },
-  { key: 'engineering', value: 'engineering', text: 'Engineering' },
-  { key: 'other', value: 'other', text: 'Other' },
-]
 
 const CheckboxField = ({ input: { value, onChange } }) =>
   <Form.Checkbox
@@ -31,10 +19,8 @@ const CheckboxField = ({ input: { value, onChange } }) =>
 const CreateArticleForm = ({handleSubmit, articleTypeValue, topicTypeValue}) =>
   <Form onSubmit={handleSubmit}>
     <Field component={InputField} name='name' label='Name' placeholder='Article name' />
-    <Field component={AreaField} name='description' label='Description' placeholder='Article descripton'  />
-    <Field component={SelectField} name='article_type' label='Type' placeholder='Type' options={options} />
-    {articleTypeValue === 'topic' && <Field component={SelectField} name='topic' label='Topic' placeholder='Topic' options={topic_options} />}
-    {topicTypeValue === 'other' && <Field component={InputField} name='topic_other' label='Topic name' placeholder='Topic name' />}
+    <Field component={InputField} name='url' label='Url' placeholder='Url to article' />
+    <Field component={AreaField} name='description' label='Description' placeholder='Article descripton' />
     <Field component={CheckboxField} name='is_public' />
     <Form.Button type='submit' primary disabled>Submit</Form.Button>
   </Form>

@@ -7,8 +7,6 @@ import CreatePageForm from './form'
 
 import { createPage, uploadPageImage } from '../../redux/actions/pages'
 
-
-
 import Dropzone from '../../components/Dropzone'
 
 const Avatar = ({image, uploadPageImage}) =>
@@ -23,20 +21,19 @@ const CreatePage = ({ user, page, createPage, uploadPageImage, image }) =>
   page.isCreated ?
     <Redirect to='/pages' from='/pages/new' />
   :
-    
-      <Card>
-        <Avatar image={image || page.image} uploadPageImage={img => uploadPageImage(img[0], user)} />
-        <Card.Content>
-          <Card.Header>New Page</Card.Header>
-          <Card.Description>
-            <CreatePageForm
-              page={page}
-              onSubmit={page => createPage({...page, image: page.image}, user)}
-            />
-          </Card.Description>
-        </Card.Content>
-      </Card>
-    
+    <Card>
+      <Avatar image={image || page.image} uploadPageImage={img => uploadPageImage(img[0], user)} />
+      <Card.Content>
+        <Card.Header>New Page</Card.Header>
+        <Card.Description>
+          <CreatePageForm
+            page={page}
+            onSubmit={page => createPage({...page, image: page.image}, user)}
+          />
+        </Card.Description>
+      </Card.Content>
+    </Card>
+
 
 const mapStateToProps = ({user, pages}) =>
 ({

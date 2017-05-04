@@ -1,4 +1,4 @@
-import { onFetchPagesSuccess, onFetchSinglePageSuccess, onCreatePageSuccess, onUploadPageImageSuccess } from '../actions/pages'
+import { onFetchPagesSuccess, onFetchSinglePageSuccess, onCreatePageSuccess, onEditPageSuccess, onDeletePageSuccess, onUploadPageImageSuccess } from '../actions/pages'
 import su from 'superagent'
 import { Observable } from 'rxjs/Rx'
 
@@ -20,6 +20,19 @@ const api = {
   createPage: ({page, user}) => {
    const request = su.post(`${API_HOST}/pages`)
       .send({page})
+      .set('Accept', 'application/json')
+      .set('Authorization', user.token)
+    return Observable.fromPromise(request)
+  },
+  editPage: ({page, user}) => {
+   const request = su.put(`${API_HOST}/page/${page.id}`)
+      .send({page})
+      .set('Accept', 'application/json')
+      .set('Authorization', user.token)
+    return Observable.fromPromise(request)
+  },
+  deletePage: ({pageId, user}) => {
+   const request = su.delete(`${API_HOST}/page/${pageId}`)
       .set('Accept', 'application/json')
       .set('Authorization', user.token)
     return Observable.fromPromise(request)
@@ -60,6 +73,26 @@ export const createPage = action$ =>
         .map(onCreatePageSuccess)
         .catch(error => Observable.of({
           type: 'CREATE_PAGE_FAILURE'
+        }))
+      )
+
+export const editPage = action$ =>
+  action$.ofType('EDIT_PAGE')
+    .mergeMap(action =>
+      api.editPage(action.payload)
+        .map(onEditPageSuccess)
+        .catch(error => Observable.of({
+          type: 'EDIT_PAGE_FAILURE'
+        }))
+      )
+
+export const deletePage = action$ =>
+  action$.ofType('DELETE_PAGE')
+    .mergeMap(action =>
+      api.deletePage(action.payload)
+        .map(onDeletePageSuccess)
+        .catch(error => Observable.of({
+          type: 'DELETE_PAGE_FAILURE'
         }))
       )
 

@@ -19,7 +19,7 @@ const api = {
     return Observable.fromPromise(request)
   },
   editProfile: ({profile, token}) => {
-   const request = su.post(`${API_HOST}/profile`)
+   const request = su.put(`${API_HOST}/profile`)
       .send({profile})
       .set('Accept', 'application/json')
       .set('Authorization', token)

@@ -18,6 +18,26 @@ export default function(state = initialState, action) {
           isCreated: true
         }
       })
+    case 'EDIT_PAGE_FIELD':
+      return Object.assign({}, state, {
+        current: {
+          ...state.current,
+          focused: action.payload.field
+        }
+      })
+    case 'EDIT_PAGE':
+      return Object.assign({}, state, {
+        current: {
+          ...action.payload.page,
+          focused: null
+        }
+      })
+    case 'EDIT_PAGE_SUCCESS':
+      return state //FIXME: PLACEHOLDER
+    case 'DELETE_PAGE_SUCCESS':
+      return Object.assign({}, state, {
+        current: null
+      })
     case 'UPLOAD_PAGE_IMAGE_SUCCESS':
       return Object.assign({}, state, {
         image: action.payload.image,

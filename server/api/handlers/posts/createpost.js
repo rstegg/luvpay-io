@@ -51,5 +51,5 @@ module.exports = (req, res) => {
       return Post.create(newPost)
     })
     .then(post => res.status(200).json({post}))
-    .catch(error => res.status(400).json({error}))
+    .catch(error => res.status(400).json({error})) //TODO: return custom error handling
 }

@@ -10,8 +10,7 @@ const validField = p => obj => Boolean(path([p], obj))
 const validBody = pipe(
     path(['body', 'page']),
     allPass([
-        validField('name'),
-        validField('page_type')
+        validField('name')
     ]))
 
 const getValidSlug = slug =>
@@ -47,9 +46,9 @@ module.exports = (req, res) => {
       const newPage = merge({
         userId: req.user.id,
         slug
-      }, pick(['name', 'page_type', 'is_public', 'topic', 'topic_other', 'image', 'description'], req.body.page))
+      }, pick(['name', 'is_public'], req.body.page))
       return Page.create(newPage)
     })
     .then(page => res.status(200).json({page}))
-    .catch(error => res.status(400).json({error}))
+    .catch(error => res.status(400).json({error})) //TODO: return custom error handling
 }

@@ -53,9 +53,34 @@ export const onCreatePageSuccess = res =>
   }
 })
 
+export const editPageField = field =>
+({
+  type: 'EDIT_PAGE_FIELD',
+  payload: {
+    field
+  }
+})
+
+export const editPage = (page, user) =>
+({
+  type: 'EDIT_PAGE',
+  payload: {
+    page,
+    user
+  }
+})
+
+export const onEditPageSuccess = res =>
+({
+  type: 'EDIT_PAGE_SUCCESS',
+  payload: {
+    page: res.body.page
+  }
+})
+
 export const deletePage = (pageId, user) =>
 ({
-  type: 'JOIN_PAGE',
+  type: 'DELETE_PAGE',
   payload: {
     pageId,
     user
@@ -64,7 +89,7 @@ export const deletePage = (pageId, user) =>
 
 export const onDeletePageSuccess = res =>
 ({
-  type: 'JOIN_PAGE_SUCCESS',
+  type: 'DELETE_PAGE_SUCCESS',
   payload: {
     page: res.body.page
   }

@@ -8,8 +8,6 @@ import ArticlesList from './list'
 
 import { fetchArticles, setCurrentArticle, refreshArticles } from '../../redux/actions/articles'
 
-
-
 class Articles extends Component {
   componentDidMount() {
     if(this.props.user.isAuthenticated) {
@@ -23,22 +21,20 @@ class Articles extends Component {
       return <Redirect to='/login' from='/articles' />
     }
     return (
-      
-        <Card className='articles'>
-          <Card.Content className='card__list'>
-            <Card.Header>Articles</Card.Header>
-            <Card.Description>
-              <ArticlesList
-                articles={articles}
-                setCurrentArticle={setCurrentArticle}
-               />
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <RouterButton to='/articles/new' from='/articles' label='start an article' />
-          </Card.Content>
-        </Card>
-      
+      <Card className='articles'>
+        <Card.Content className='card__list'>
+          <Card.Header>Articles</Card.Header>
+          <Card.Description>
+            <ArticlesList
+              articles={articles}
+              setCurrentArticle={setCurrentArticle}
+             />
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <RouterButton to='/articles/new' from='/articles' label='start an article' />
+        </Card.Content>
+      </Card>
     )
   }
 }

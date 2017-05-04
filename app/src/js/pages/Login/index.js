@@ -9,8 +9,6 @@ import { onLoginSubmit } from '../../redux/actions/login'
 import LoginForm from './form'
 import RouterButton from '../../elements/RouterButton'
 
-
-
 const Login = ({
   user,
   onLoginSubmit
@@ -18,19 +16,18 @@ const Login = ({
   user.isAuthenticated ?
     <Redirect to='/posts' from='/login' />
   :
-    
-      <Card>
-        <Card.Content>
-          <Card.Header>Login</Card.Header>
-          <Card.Description>
-            <LoginForm onSubmit={onLoginSubmit} />
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <RouterButton to="/signup" from="/login" prefix="Don't have an account?" label="Sign up" />
-        </Card.Content>
-      </Card>
-    
+    <Card>
+      <Card.Content>
+        <Card.Header>Login</Card.Header>
+        <Card.Description>
+          <LoginForm onSubmit={onLoginSubmit} />
+        </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <RouterButton to="/signup" from="/login" prefix="Don't have an account?" label="Sign up" />
+      </Card.Content>
+    </Card>
+
 
 const mapStateToProps = ({user}) =>
 ({

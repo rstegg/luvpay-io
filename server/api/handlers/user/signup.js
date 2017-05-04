@@ -90,5 +90,5 @@ module.exports = (req, res) => {
         const token = jwt.sign({ id: createdUser.id }, process.env.JWT_SECRET)
         res.status(200).json({user: resUser, token})
       })
-      .catch((error) => res.status(400).json({error}))
+      .catch((error) => res.status(400).json({error})) //TODO: return custom error handling
 }

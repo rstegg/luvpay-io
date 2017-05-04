@@ -7,8 +7,6 @@ import CreateArticleForm from './form'
 
 import { createArticle } from '../../redux/actions/articles'
 
-
-
 const CreateArticle = ({ user, article, createArticle }) =>
   !user.isAuthenticated ?
     <Redirect to='/login' from='/articles/new' />
@@ -16,18 +14,17 @@ const CreateArticle = ({ user, article, createArticle }) =>
   article.isCreated ?
     <Redirect to='/articles' from='/articles/new' />
   :
-    
-      <Card>
-        <Card.Content>
-          <Card.Header>New Article</Card.Header>
-          <Card.Description>
-            <CreateArticleForm
-              article={article}
-              onSubmit={article => createArticle(article, user)}
-            />
-          </Card.Description>
-        </Card.Content>
-      </Card>
+    <Card>
+      <Card.Content>
+        <Card.Header>New Article</Card.Header>
+        <Card.Description>
+          <CreateArticleForm
+            article={article}
+            onSubmit={article => createArticle(article, user)}
+          />
+        </Card.Description>
+      </Card.Content>
+    </Card>
 
 
 const mapStateToProps = ({user, articles}) =>
