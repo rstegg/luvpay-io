@@ -3,12 +3,10 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { Card } from 'semantic-ui-react'
-import RouterButton from '../../elements/RouterButton'
 import PagesList from './list'
+import RouterButton from '../../elements/RouterButton'
 
 import { fetchPages, setCurrentPage, refreshPages } from '../../redux/actions/pages'
-
-
 
 class Pages extends Component {
   componentDidMount() {
@@ -23,22 +21,20 @@ class Pages extends Component {
       return <Redirect to='/login' from='/pages' />
     }
     return (
-      
-        <Card className='pages'>
-          <Card.Content className='card__list'>
-            <Card.Header>Pages</Card.Header>
-            <Card.Description>
-              <PagesList
-                pages={pages}
-                setCurrentPage={setCurrentPage}
-               />
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <RouterButton to='/pages/new' from='/pages' label='start a page' />
-          </Card.Content>
-        </Card>
-      
+      <Card className='posts'>
+        <Card.Content className='card__list'>
+          <Card.Header>Pages</Card.Header>
+          <Card.Description>
+            <PagesList
+              pages={pages}
+              setCurrentPage={setCurrentPage}
+             />
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <RouterButton to='/pages/new' from='/pages' label='start a page' />
+        </Card.Content>
+      </Card>
     )
   }
 }

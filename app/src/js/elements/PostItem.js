@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import { Feed, Image } from 'semantic-ui-react'
 import moment from 'moment'
@@ -10,8 +11,8 @@ const postUserImage = path(['user', 'image'])
 
 const formatDate = date => moment(date, 'YYYY-MM-DD HH:mm Z').fromNow()
 
-const PostsItem = ({className, onClick, post}) =>
-    <Feed.Event as='a' href={`/post/${post.slug}`}>
+const PostItem = ({className, onClick, post}) =>
+    <Feed.Event as={NavLink} to={`/post/${post.slug}`}>
       <Feed.Label className='post--img'>
         <Image src={post.image || '/images/postholder.png'} alt={post.name} avatar />
       </Feed.Label>
@@ -27,4 +28,4 @@ const PostsItem = ({className, onClick, post}) =>
       </Feed.Content>
     </Feed.Event>
 
-export default PostsItem
+export default PostItem

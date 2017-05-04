@@ -4,7 +4,7 @@
 @import 'components/Menu.css';
 /*Elements*/
 @import 'elements/InputField.css';
-@import 'elements/PostsItem.css';
+@import 'elements/PostItem.css';
 /*Pages*/
 @import 'pages/EditProfile.css';
 @import 'pages/Home.css';

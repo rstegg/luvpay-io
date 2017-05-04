@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PostsItem from '../../elements/PostsItem'
+import PostItem from '../../elements/PostItem'
 import { Feed } from 'semantic-ui-react'
 
 const PostsList =
@@ -8,16 +8,16 @@ const PostsList =
   posts,
   setCurrentPost
 }) =>
-      <Feed>
+    <Feed>
       {posts.length ? posts.map((post, i) =>
-        <PostsItem key={`post-${i}`} post={post} onClick={() => setCurrentPost(post)} />
+        <PostItem key={`post-${i}`} post={post} onClick={() => setCurrentPost(post)} />
       ) :
       <Feed.Event>
         <Feed.Label image='/images/postholder.png' />
         <Feed.Content content='No Posts!' />
       </Feed.Event>
       }
-    </Feed>
+  </Feed>
 
 
 

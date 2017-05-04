@@ -39,8 +39,8 @@ module.exports = (req, res) => {
         const mail = mailcomposer({
           from: 'kuwau.com <hello@mg.kuwau.com>',
           to: req.body.email,
-          subject: `${req.body.name}, your friend is collecting with kuwau.com!`,
-          text: `${req.user.name} is collecting with kuwau.com! Go here to contribute: ${req.body.url}`,
+          subject: `Dear ${req.body.name}, someone shared a post with you at kuwau.com!`,
+          text: `${req.user.name} shared a link on kuwau.com! ${req.body.url}`,
           html: shareEmailTemplate(req.body.name, req.user.name, req.body.url, req.body.message)
         })
         mail.build((mailBuildError, message) => {

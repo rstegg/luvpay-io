@@ -8,8 +8,6 @@ import RouterButton from '../../elements/RouterButton'
 
 import { fetchPosts, refreshPosts, setCurrentPost } from '../../redux/actions/posts'
 
-
-
 class Posts extends Component {
   componentDidMount() {
     if(this.props.user.isAuthenticated) {
@@ -23,22 +21,20 @@ class Posts extends Component {
       return <Redirect to="/login" from="/posts" />
     }
     return (
-      
-        <Card className='posts'>
-          <Card.Content>
-            <Card.Header>Posts</Card.Header>
-          </Card.Content>
-          <Card.Content>
-              <PostsList
-                posts={posts.list}
-                setCurrentPost={setCurrentPost}
-              />
-          </Card.Content>
-          <Card.Content extra>
-            <RouterButton to='/posts/new' from='/posts' label='start a post' />
-          </Card.Content>
-        </Card>
-      
+      <Card className='posts'>
+        <Card.Content>
+          <Card.Header>Posts</Card.Header>
+        </Card.Content>
+        <Card.Content>
+            <PostsList
+              posts={posts.list}
+              setCurrentPost={setCurrentPost}
+            />
+        </Card.Content>
+        <Card.Content extra>
+          <RouterButton to='/posts/new' from='/posts' label='start a post' />
+        </Card.Content>
+      </Card>
     )
   }
 }
