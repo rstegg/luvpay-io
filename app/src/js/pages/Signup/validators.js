@@ -8,12 +8,22 @@ export const validate = values => {
   }
   if (!values.username) {
     errors.username = 'Required'
+  } else if(values.username.length > 20) {
+    errors.username = 'Maximum 20 characters'
+  } else if(values.username.length < 4) {
+    errors.username = 'Minimum 4 characters'
+  } else if(!/^([a-zA-Z]+)[0-9]*\.*[a-zA-Z0-9]+$|^[a-zA-Z]+[0-9]*$/.test(values.username)) {
+    errors.username = 'Invalid username'
   }
   if (!values.email) {
     errors.email = 'Required'
+  } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email'
   }
   if (!values.password) {
     errors.password = 'Required'
+  } else if(values.password < 6) {
+    errors.password = '6 or more characters'
   }
   return errors
 }
