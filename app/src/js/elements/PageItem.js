@@ -1,8 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Feed, Image, Header } from 'semantic-ui-react'
-import moment from 'moment'
+import { Feed, Header } from 'semantic-ui-react'
 
 const PageItem = ({className, onClick, page}) =>
   <Feed.Event as={NavLink} to={`/page/${page.slug}`}>
