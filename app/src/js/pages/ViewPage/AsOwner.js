@@ -2,11 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { Image, Grid, Header, Label, Button } from 'semantic-ui-react'
-import { Field, reduxForm, formValueSelector } from 'redux-form'
+import { Field, reduxForm } from 'redux-form'
 
 import PageMenu from '../../components/PostMenu'
 import Dropzone from '../../components/Dropzone'
 import InputField from '../../elements/InputField'
+import EditorField from '../../elements/EditorField'
 
 import { editPage, uploadPageImage, editPageField } from '../../redux/actions/pages'
 
@@ -15,10 +16,10 @@ const Avatar = ({image, uploadPageImage}) =>
     <Image src={image || '/images/postholder.png'} />
   </Dropzone>
 
-const EditField = ({children, onClick, isEditing, placeholder, label, name, value, type, onSubmit}) =>
+const EditField = ({children, fieldComponent, onClick, isEditing, placeholder, label, name, value, type, onSubmit}) =>
   isEditing ?
   <Field
-    component={InputField}
+    component={fieldComponent || InputField}
     type={type || 'text'}
     label={label}
     placeholder={placeholder}
@@ -27,7 +28,9 @@ const EditField = ({children, onClick, isEditing, placeholder, label, name, valu
       if(e.keyCode === 13) {
         onSubmit(e.target.value)
       }}
-    } />
+    }
+    onClick={v => onSubmit(v)}
+    />
   :
   <div onClick={onClick}>
     {children}
@@ -49,6 +52,7 @@ const AdminView = ({
       </Grid.Column>
       <Grid.Column width={10}>
         <EditField
+          fieldComponent={EditorField}
           isEditing={page.focused === 'description'}
           placeholder='Description' name='description'
           onClick={() => editPageField('description')} onSubmit={v => editPage({...page, description: v}, user)}>
@@ -86,8 +90,6 @@ const ConnectedAdminView = reduxForm({
   forceUnregisterOnUnmount: true,
   // validate
 })(AdminView)
-
-const selector = formValueSelector('editPage')
 
 const mapStateToProps = state =>
 ({
