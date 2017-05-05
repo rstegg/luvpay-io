@@ -1,5 +1,5 @@
 const { models } = require('../../db')
-const { User } = models
+const { User, Page } = models
 
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
@@ -50,6 +50,16 @@ module.exports = () => {
 
   router.post(`/image/post/free`, upload.single('image'), function(req, res) {
       res.status(200).json({image: req.file.location})
+  })
+
+  router.post(`/image/page`, passport.authenticate('jwt', { session: false }), upload.single('image'), function(req, res) {
+      res.status(200).json({image: req.file.location})
+  })
+
+  router.post(`/image/page/:id`, passport.authenticate('jwt', { session: false }), upload.single('image'), function(req, res) {
+    Page.update({ image: req.file.location }, { where: { id: req.params.id, userId: req.user.id }})
+      .then(page => res.status(200).json({image: req.file.location}))
+      .catch(error => res.status(400).json({error}))
   })
 
   return router

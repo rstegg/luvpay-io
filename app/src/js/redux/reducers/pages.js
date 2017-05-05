@@ -39,6 +39,7 @@ export default function(state = initialState, action) {
         current: null
       })
     case 'UPLOAD_PAGE_IMAGE_SUCCESS':
+    case 'UPLOAD_EDIT_PAGE_IMAGE_SUCCESS':
       return Object.assign({}, state, {
         image: action.payload.image,
       })

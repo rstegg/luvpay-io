@@ -129,6 +129,24 @@ export const onUploadPageImageSuccess = res =>
   }
 })
 
+export const uploadEditPageImage = (image, page, user) =>
+({
+  type: 'UPLOAD_EDIT_PAGE_IMAGE',
+  payload: {
+    image,
+    token: user.token,
+    pageId: page.id
+  }
+})
+
+export const onUploadEditPageImageSuccess = res =>
+({
+  type: 'UPLOAD_EDIT_PAGE_IMAGE_SUCCESS',
+  payload: {
+    image: res.body.image
+  }
+})
+
 
 export const setCurrentPage = page =>
 ({

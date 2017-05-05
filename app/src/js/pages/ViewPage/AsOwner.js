@@ -9,10 +9,10 @@ import Dropzone from '../../components/Dropzone'
 import InputField from '../../elements/InputField'
 import EditorField from '../../elements/EditorField'
 
-import { editPage, uploadPageImage, editPageField } from '../../redux/actions/pages'
+import { editPage, uploadEditPageImage, editPageField } from '../../redux/actions/pages'
 
-const Avatar = ({image, uploadPageImage}) =>
-  <Dropzone className='ui image editable' onDrop={uploadPageImage}>
+const Avatar = ({image, uploadEditPageImage}) =>
+  <Dropzone className='ui image editable' onDrop={uploadEditPageImage}>
     <Image src={image || '/images/postholder.png'} />
   </Dropzone>
 
@@ -39,7 +39,7 @@ const EditField = ({children, fieldComponent, onClick, isEditing, placeholder, l
 const AdminView = ({
   editPage,
   editPageField,
-  uploadPageImage,
+  uploadEditPageImage,
   image,
   page,
   user,
@@ -48,7 +48,7 @@ const AdminView = ({
   <Grid celled className='main-container'>
     <Grid.Row>
       <Grid.Column width={3}>
-        <Avatar image={image || page.image} uploadPageImage={img => uploadPageImage(img[0], user)} />
+        <Avatar image={image || page.image} uploadEditPageImage={img => uploadEditPageImage(img[0], page, user)} />
       </Grid.Column>
       <Grid.Column width={10}>
         <EditField
@@ -102,7 +102,7 @@ const mapStateToProps = state =>
 const mapDispatchToProps = dispatch =>
 ({
   editPage: (page, user) => dispatch(editPage(page, user)),
-  uploadPageImage: (img, user) => dispatch(uploadPageImage(img, user)),
+  uploadEditPageImage: (img, page, user) => dispatch(uploadEditPageImage(img, page, user)),
   editPageField: field => dispatch(editPageField(field))
 })
 

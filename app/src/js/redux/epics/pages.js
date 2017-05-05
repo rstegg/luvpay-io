@@ -1,4 +1,4 @@
-import { onFetchPagesSuccess, onFetchSinglePageSuccess, onCreatePageSuccess, onEditPageSuccess, onDeletePageSuccess, onUploadPageImageSuccess } from '../actions/pages'
+import { onFetchPagesSuccess, onFetchSinglePageSuccess, onCreatePageSuccess, onEditPageSuccess, onDeletePageSuccess, onUploadPageImageSuccess, onUploadEditPageImageSuccess } from '../actions/pages'
 import su from 'superagent'
 import { Observable } from 'rxjs/Rx'
 
@@ -38,7 +38,14 @@ const api = {
     return Observable.fromPromise(request)
   },
   uploadPageImage: ({image, token}) => {
-    const request = su.post(`${API_HOST}/image/post`)
+    const request = su.post(`${API_HOST}/image/page`)
+      .attach('image', image)
+      .set('Accept', 'application/json')
+      .set('Authorization', token)
+    return Observable.fromPromise(request)
+  },
+  uploadEditPageImage: ({image, pageId, token}) => {
+    const request = su.post(`${API_HOST}/image/page/${pageId}`)
       .attach('image', image)
       .set('Accept', 'application/json')
       .set('Authorization', token)
@@ -103,5 +110,15 @@ export const uploadPageImage = action$ =>
         .map(onUploadPageImageSuccess)
         .catch(error => Observable.of({
           type: 'UPLOAD_PAGE_IMAGE_FAILURE'
+        }))
+      )
+
+export const uploadEditPageImage = action$ =>
+  action$.ofType('UPLOAD_EDIT_PAGE_IMAGE')
+    .mergeMap(action =>
+      api.uploadEditPageImage(action.payload)
+        .map(onUploadEditPageImageSuccess)
+        .catch(error => Observable.of({
+          type: 'UPLOAD_EDIT_PAGE_IMAGE_FAILURE'
         }))
       )
