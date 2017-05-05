@@ -6,7 +6,6 @@ const pages = require('./pages')
 const profile = require('./profile')
 const images = require('./images')
 const feed = require('./feed')
-const account = require('./account')
 
 module.exports = [
   login,
@@ -16,6 +15,5 @@ module.exports = [
   pages,
   profile,
   images,
-  feed,
-  account
+  feed
 ]

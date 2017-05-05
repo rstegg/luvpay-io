@@ -89,6 +89,7 @@
     max-width: 7.5vh;
     align-items: center;
     justify-content: center;
+    font-size: 3vh !important;
   }
 
   .menu--button > i {
